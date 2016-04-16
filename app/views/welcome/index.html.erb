@@ -3,4 +3,10 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
 
+<%=  my = Mysql.connect('localhost', 'root', 'root', 'Igneum_development')
+res = my.query 'select id,name from aux'
+res.each do |c1, c2|
+  p c1, c2
+end %>
+
 <%= render "shared/footer" %>
