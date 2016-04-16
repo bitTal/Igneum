@@ -4,7 +4,7 @@ class FiresController < ApplicationController
   # GET /fires
   # GET /fires.json
   def index
-    @fires = Fire.all
+      @fires = Fire.all
   end
 
   # GET /fires/1

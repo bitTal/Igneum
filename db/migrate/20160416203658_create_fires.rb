@@ -7,7 +7,7 @@ class CreateFires < ActiveRecord::Migration
       t.string :ca
       t.date :date_ini
       t.time :time_ini
-      t.int :area
+      t.integer :area
       t.string :teams
 
       t.timestamps null: false
