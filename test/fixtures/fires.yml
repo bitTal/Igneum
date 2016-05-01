@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lat: 9.99
+  lng: 9.99
+  city: MyString
+  ca: MyString
+  date_ini: 2016-04-16
+  time_ini: 2016-04-16 22:36:58
+  area: 
+  teams: MyString
+
+two:
+  lat: 9.99
+  lng: 9.99
+  city: MyString
+  ca: MyString
+  date_ini: 2016-04-16
+  time_ini: 2016-04-16 22:36:58
+  area: 
+  teams: MyString

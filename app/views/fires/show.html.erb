@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @fire.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @fire.lng %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @fire.city %>
+</p>
+
+<p>
+  <strong>Ca:</strong>
+  <%= @fire.ca %>
+</p>
+
+<p>
+  <strong>Date ini:</strong>
+  <%= @fire.date_ini %>
+</p>
+
+<p>
+  <strong>Time ini:</strong>
+  <%= @fire.time_ini %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @fire.area %>
+</p>
+
+<p>
+  <strong>Teams:</strong>
+  <%= @fire.teams %>
+</p>
+
+<%= link_to 'Edit', edit_fire_path(@fire) %> |
+<%= link_to 'Back', fires_path %>

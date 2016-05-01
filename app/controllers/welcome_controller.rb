@@ -1,4 +1,7 @@
 class WelcomeController < ApplicationController
-  def index
-  end
+	def index
+      @fires = Fire.all
+	end
+	
+
 end
