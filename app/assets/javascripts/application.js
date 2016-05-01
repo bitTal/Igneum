@@ -44,7 +44,7 @@
      * Function to start the application
      */
     _start: function() {
-      new App.View.Map();
+      new App.View.Map({el: 'map'});
     }
   });
 

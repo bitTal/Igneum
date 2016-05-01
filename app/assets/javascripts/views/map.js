@@ -10,14 +10,13 @@
   App.View = App.View || {};
 
   App.View.Map = Backbone.View.extend({
-    el: '#map',
 
     initialize(options) {
-      this.initMap();
+      this.initMap(options);
     },
 
-    initMap() {
-      const map = L.map(this.el).
+    initMap(options) {
+      const map = L.map(options.el).
        setView(this.setCenter,
        6);
 
