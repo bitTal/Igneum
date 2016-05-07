@@ -13,10 +13,15 @@ App.View = App.View || {};
 App.View.Map = class Intro_Map extends Map{
 
   defaults() {
+    const month = this.getYearMonth().month + 1;
+    const year = this.getYearMonth().year;
+
     return Object.assign( Map.prototype.defaults(), {
       markerCartocss: `#frs {
         marker-fill: red;
-      }`
+      }`,
+      markerSql: `SELECT * from frs where EXTRACT(year FROM date) = ${year} 
+        AND EXTRACT(month FROM date) = ${month}`
     });
   }
 
@@ -25,11 +30,20 @@ App.View.Map = class Intro_Map extends Map{
       user_name: 'albafjez',
       type: 'cartodb',
       sublayers: [{
-        sql: "SELECT * FROM frs",
+        sql: this.options.markerSql || this.defaults().markerSql,
         cartocss: this.options.markerCartocss || this.defaults().markerCartocss
       }]
     })
     .addTo(map);
+  }
+
+  getYearMonth() {
+    const date = new Date();
+
+    return {
+      year: date.getFullYear(),
+      month: date.getMonth()
+    };
   }
 
 }
