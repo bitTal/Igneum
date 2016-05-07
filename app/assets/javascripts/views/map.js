@@ -33,7 +33,7 @@
 
     initialize(options) {
       this.options = options;
-      this.createMap();
+      this.createMap();  
     },
 
     createMap() {
@@ -54,6 +54,8 @@
         }]
       })
       .addTo(map);
+
+      this.customizeMap(map);
     },
 
     setTileLayer() {
@@ -71,8 +73,10 @@
       const northEast = this.options.bounds ? this.options.bounds.northEast : this.defaults.northEast;
       const bounds = L.latLngBounds(L.latLng(southWest[0], southWest[1]), L.latLng(northEast[0], northEast[1]));
       return bounds;
-    }
-    
+    },
+
+    customizeMap(map) {}
+
   });
 
 window.App = App;
