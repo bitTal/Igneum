@@ -45,12 +45,12 @@
      * Function to start the application
      */
     _start: function() {
-      new App.View.Map({el: 'map'});
+      //new App.View.Map({el: 'map'});
     }
   });
 
   function onReady() {
-    new ApplicationView({ el: document.body });
+    //new ApplicationView({ el: document.body });
   }
 
   document.addEventListener('DOMContentLoaded', onReady);

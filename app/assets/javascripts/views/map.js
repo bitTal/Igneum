@@ -11,6 +11,26 @@
 
   App.View.Map = Backbone.View.extend({
 
+    defaults: {
+      setCenter: [39.555, -9.72],
+      tileLayer: 'https://stamen-tiles-d.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png',
+      attributions: `&copy; "Map tiles by " <a href="http://stamen.com">Stamen Design</a>, 
+          under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. 
+          Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, 
+          under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.`,
+      setZoom: [6, 13],
+      southWest: [34.6378936, -15.49],
+      northEast: [43.9913218, 5.3277839],
+      query: "SELECT * FROM spanish_adm2_provinces",
+      cartocss: `#spanish_adm2_provinces {
+            polygon-fill: #000000;
+            polygon-opacity: 0.7;
+            line-color: #FFF;
+            line-width: 0.5;
+            line-opacity: 1;
+          }`
+    },
+
     initialize(options) {
       this.options = options;
       this.createMap();
@@ -18,7 +38,7 @@
 
     createMap() {
       const map = L.map(this.options.el).
-       setView(this.setCenter,
+       setView(this.options.center || this.defaults.setCenter,
        6);
 
       this.setTileLayer().addTo(map);
@@ -29,51 +49,29 @@
         user_name: 'albafjez',
         type: 'cartodb',
         sublayers: [{
-          sql: this.query,
-          cartocss: this.cartocss
+          sql: this.options.query || this.defaults.query,
+          cartocss: this.options.cartocss || this.defaults.cartocss
         }]
       })
       .addTo(map);
     },
 
-    setCenter: [39.555, -9.72],
-
     setTileLayer() {
-      return L.tileLayer(this.tileLayer, {
-        attribution: this.attributions,
+      return L.tileLayer(this.options.tileLayer || this.defaults.tileLayer, {
+        attribution: this.options.attributions || this.defaults.attributions,
         subdomains: 'abcd',
-        maxZoom: this.setZoom[1],
-        minZoom: this.setZoom[0],
+        maxZoom: this.options.setZoom ? this.options.setZoom[1] : this.defaults.setZoom[1],
+        minZoom: this.options.setZoom ? this.options.setZoom[0] : this.defaults.setZoom[0],
         maxBounds: this.setBounds()
       });
     },
 
-    tileLayer: 'https://stamen-tiles-d.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png',
-
-    attributions: '&copy; "Map tiles by " <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-
-    setZoom: [6, 13],
-
     setBounds() {
-      const southWest = L.latLng(34.6378936, -15.49),
-        northEast = L.latLng(43.9913218, 5.3277839),
-        bounds = L.latLngBounds(southWest, northEast);
+      const southWest = this.options.bounds ? this.options.bounds.southWest : this.defaults.southWest;
+      const northEast = this.options.bounds ? this.options.bounds.northEast : this.defaults.northEast;
+      const bounds = L.latLngBounds(L.latLng(southWest[0], southWest[1]), L.latLng(northEast[0], northEast[1]));
       return bounds;
-    },
-
-    query: "SELECT * FROM spanish_adm2_provinces",
-
-    cartocss: `#spanish_adm2_provinces {
-            polygon-fill: #000000;
-            polygon-opacity: 0.7;
-            line-color: #FFF;
-            line-width: 0.5;
-            line-opacity: 1;
-          }`,
-
-    layer: 'https://albafjez.cartodb.com/api/v2/viz/13197416-0f02-11e6-8e58-0e5db1731f59/viz.json',
-
-    https: true
+    }
     
   });
 
