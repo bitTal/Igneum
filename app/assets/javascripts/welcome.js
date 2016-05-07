@@ -22,7 +22,7 @@
 // require_tree ./views
 // require_tree ./routers
 // require_tree .
-//= require ./views/map
+//= require ./views/intro_map
 
 'use strict';
 
