@@ -12,18 +12,28 @@
   App.View.Map = Backbone.View.extend({
 
     initialize(options) {
-      this.initMap(options);
+      this.options = options;
+      this.createMap();
     },
 
-    initMap(options) {
-      const map = L.map(options.el).
+    createMap() {
+      const map = L.map(this.options.el).
        setView(this.setCenter,
        6);
 
       this.setTileLayer().addTo(map);
       map.setMaxBounds(this.setBounds());
       L.control.scale().addTo(map);
-      cartodb.createLayer(map, this.layer, { https: this.https }).addTo(map);
+
+      cartodb.createLayer(map, {
+        user_name: 'albafjez',
+        type: 'cartodb',
+        sublayers: [{
+          sql: this.query,
+          cartocss: this.cartocss
+        }]
+      })
+      .addTo(map);
     },
 
     setCenter: [39.555, -9.72],
@@ -50,6 +60,16 @@
         bounds = L.latLngBounds(southWest, northEast);
       return bounds;
     },
+
+    query: "SELECT * FROM spanish_adm2_provinces",
+
+    cartocss: `#spanish_adm2_provinces {
+            polygon-fill: #000000;
+            polygon-opacity: 0.7;
+            line-color: #FFF;
+            line-width: 0.5;
+            line-opacity: 1;
+          }`,
 
     layer: 'https://albafjez.cartodb.com/api/v2/viz/13197416-0f02-11e6-8e58-0e5db1731f59/viz.json',
 
