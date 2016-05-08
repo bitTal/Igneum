@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   
-
+  # get "/backoffice/users", to: redirect('/auth/google_oauth2')
+  
+  get "/auth/google_oauth2/callback", to: 'backoffice/users#index'
+  get 'auth/failure', to: redirect('/')
 
 
   # Example of regular route:
