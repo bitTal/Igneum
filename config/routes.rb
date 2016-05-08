@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  namespace :backoffice do
-    resources :users
-  end
+  #namespace :backoffice do
+   # resources :users
+  #end
 
   resources :fires
   
@@ -15,8 +15,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   # get "/backoffice/users", to: redirect('/auth/google_oauth2')
+
+  resources :backoffice
+
   
-  get "/auth/google_oauth2/callback", to: 'backoffice/users#index'
+  get "/auth/google_oauth2/callback", to: 'backoffice#index'
   get 'auth/failure', to: redirect('/')
 
 
