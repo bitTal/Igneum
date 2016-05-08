@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :backoffice
 
   
-  get "/auth/google_oauth2/callback", to: 'backoffice#index'
+  get "/auth/google_oauth2/callback", to: 'backoffice#edit'
   get 'auth/failure', to: redirect('/')
 
 
