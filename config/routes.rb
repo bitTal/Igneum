@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   
   # get "/backoffice/users", to: redirect('/auth/google_oauth2')
 
-  resources :backoffice
+  #resources :backoffice
+  get 'backoffice', to: 'backoffice#index'
+  #get 'backoffice/edit', to: redirect('/')
+  get 'backoffice/add_fire', to: 'backoffice#add_fire'
+  post 'backoffice/add_fire', to: 'backoffice#add_fire'
 
   
   get "/auth/google_oauth2/callback", to: 'backoffice#edit'
