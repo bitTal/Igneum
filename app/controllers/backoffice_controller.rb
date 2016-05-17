@@ -2,24 +2,29 @@ require "#{Dir.pwd}/config/utils/index.rb"
 
 class BackofficeController < ApplicationController
 	def index
-	end
+		if request.env['omniauth.auth']
+			@auth = request.env['omniauth.auth']
+			@users = User.all
+			nickname = request.env['omniauth.auth']['info']['email'].split('@').first
+			exists = @users.select {|user| user.user == nickname } 
 
-	def edit
-		@auth = request.env['omniauth.auth']
-		@users = User.all
-		nickname = request.env['omniauth.auth']['info']['email'].split('@').first
-		exists = @users.select {|user| user.user == nickname } 
-
-		if exists.length === 0
-			redirect_to action: "index"
-		else 
-			if exists[0].user_type != 'S'
+			if exists.length === 0
 				redirect_to action: "index"
+			else 
+				if exists[0].user_type != 'S'
+					redirect_to action: "index"
+				end
 			end
+			redirect_to action: "edit"
 		end
 	end
 
+	def edit
+		
+	end
+
 	def add_fire
+		@auth = request.env['omniauth.auth']
 		@provs = Provincias.all
 		@prov = params['provincia'] ? params['provincia'] : '2'
 		@municipios = Municipios.where(id_provincia: @prov)
