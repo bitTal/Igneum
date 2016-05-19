@@ -11,9 +11,11 @@ class BackofficeController < ApplicationController
 
 			if exists.length === 0
 				redirect_to action: "index"
+				return
 			else 
 				if exists[0].user_type != 'S'
 					redirect_to action: "index"
+					return
 				end
 			end
 			session[:user] = {}
@@ -32,6 +34,7 @@ class BackofficeController < ApplicationController
 	def add_fire
 		if !session[:user]['auth_token']
 			redirect_to action: "index"
+			return
 		end
 		#@auth = request.env['omniauth.auth']
 		@provs = Provincias.all
