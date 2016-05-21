@@ -14,6 +14,7 @@
     defaults() {
       return {
         setCenter: [39.555, -9.72],
+        defaultZoom: 6,
         tileLayer: 'https://stamen-tiles-d.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png',
         attributions: `&copy; "Map tiles by " <a href="http://stamen.com">Stamen Design</a>, 
             under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. 
@@ -41,7 +42,7 @@
     createMap() {
       const map = L.map(this.options.el).
        setView(this.options.center || this.defaults().setCenter,
-       6);
+       this.options.defaultZoom || this.defaults().defaultZoom);
 
       this.setTileLayer().addTo(map);
       map.setMaxBounds(this.setBounds());

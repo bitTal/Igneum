@@ -3,14 +3,14 @@
 'use strict';
 
 /**
- * Intro_Map View contains the Leaflet map
+ * Compare_map View contains the Leaflet map
  * @param  {Object} App Global object
  */
 
-/*var App = App || {};
-App.View = App.View || {};*/
+var App = App || {};
+App.View = App.View || {};
 
-class Intro_Map extends Map{
+App.View.Map = class Compare_map extends Map{
 
   defaults() {
     const month = this.getYearMonth().month + 1;
@@ -48,4 +48,4 @@ class Intro_Map extends Map{
 
 }
 
-//window.App = App;
+window.App = App;
