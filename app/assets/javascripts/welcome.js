@@ -82,7 +82,7 @@
         }
 
         #spanish_adm2_provinces [ e = -1 ] {
-           polygon-fill: #FFFFFF;
+           polygon-fill: #888;
         }`;
     },
 
