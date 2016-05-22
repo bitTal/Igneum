@@ -36,10 +36,17 @@ class BackofficeController < ApplicationController
 			redirect_to action: "index"
 			return
 		end
-		#@auth = request.env['omniauth.auth']
+				
 		@provs = Provincias.all
 		@prov = params['provincia'] ? params['provincia'] : '2'
 		@municipios = Municipios.where(id_provincia: @prov)
+	end
+
+	def create_fire
+		if !session[:user]['auth_token']
+			redirect_to action: "index"
+			return
+		end
 
 		if params['town'] || params['municipios']
 			if params['town']
@@ -53,7 +60,7 @@ class BackofficeController < ApplicationController
 			conf = YAML.load_file("#{Dir.pwd}/config/confidencial.yml") 
 			@town = normileze_string(@town)
 		    open("https://#{conf['cartodb_user']}.cartodb.com/api/v2/sql?q=INSERT INTO frs (town, date, country) VALUES ('#{@town}', now(), 'Spain')&api_key=#{conf['cartodb_api_key']}").read
-		    redirect_to action: 'edit'
+		    redirect_to action: 'add_fire'
 		end
 	end
 
