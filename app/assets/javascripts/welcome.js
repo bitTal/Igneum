@@ -40,7 +40,28 @@
       this._start();
     },
 
-    _compare_query(month1, year1, month2, year2) {
+    /**
+     * Function to start the application
+     */
+    _start: function() {
+      const path = window.location.pathname;
+      const date1 = this._getMonthDate();
+
+      if(path === '/') {
+        new Intro_Map({el: 'map'});
+      }
+      else if (path === '/month') {
+        new Intro_Map({el: 'map', month: date1.month, year: date1.year});
+      }
+      else if (path === '/compare') {
+        new Map({el: 'map1', query: this._compare_query('05', '2016', '05', '2015'), 
+          cartocss: this._compare_cartocss(), defaultZoom : 3});
+        new Map({el: 'map2', query: this._compare_query('5', '2015', '5', '2016'), 
+          cartocss: this._compare_cartocss(), defaultZoom : 3});
+      }
+    },
+
+     _compare_query(month1, year1, month2, year2) {
       return `with q as (SELECT p.the_geom, p.the_geom_webmercator, p.nom_prov, p.cod_prov,  
         (SELECT COUNT(z.cod_prov) FROM frs z
         WHERE EXTRACT(month FROM date) = '${month1}' AND
@@ -86,24 +107,22 @@
         }`;
     },
 
-    /**
-     * Function to start the application
-     */
-    _start: function() {
-      const path = window.location.pathname;
+    _getMonthDate() {
+      let clearParams = {},
+        month = new Date().getMonth() + 1,
+        year = new Date().getFullYear();
 
-      if(path === '/') {
-        new Intro_Map({el: 'map'});
+      let params = window.location.search.substr(1).split('&').map(param => {
+        const aux = param.split('=');
+        clearParams[aux[0]] = aux[1];
+      });
+
+      if (Object.keys(clearParams).indexOf('month1') !== -1 &&
+        Object.keys(clearParams).indexOf('year1') !== -1){
+        month = clearParams['month1'];
+        year = clearParams['year1'];
       }
-      else if (path === '/month') {
-        new Intro_Map({el: 'map'});
-      }
-      else if (path === '/compare') {
-        new Map({el: 'map1', query: this._compare_query('05', '2016', '05', '2015'), 
-          cartocss: this._compare_cartocss(), defaultZoom : 3});
-        new Map({el: 'map2', query: this._compare_query('5', '2015', '5', '2016'), 
-          cartocss: this._compare_cartocss(), defaultZoom : 3});
-      }
+      return {month, year};
     }
 
   });
