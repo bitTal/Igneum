@@ -45,18 +45,22 @@
      */
     _start: function() {
       const path = window.location.pathname;
-      const date1 = this._getMonthDate();
 
       if(path === '/') {
         new Intro_Map({el: 'map'});
       }
       else if (path === '/month') {
+        const date1 = this._getMonthDate('month1', 'year1');
         new Intro_Map({el: 'map', month: date1.month, year: date1.year});
       }
       else if (path === '/compare') {
-        new Map({el: 'map1', query: this._compare_query('05', '2016', '05', '2015'), 
+        const dates = this._getCompareDates();
+
+        new Map({el: 'map1', query: this._compare_query(dates.month1, dates.year1,
+          dates.month2, dates.year2), 
           cartocss: this._compare_cartocss(), defaultZoom : 3});
-        new Map({el: 'map2', query: this._compare_query('5', '2015', '5', '2016'), 
+        new Map({el: 'map2', query: this._compare_query(dates.month2, dates.year2,
+          dates.month1, dates.year1), 
           cartocss: this._compare_cartocss(), defaultZoom : 3});
       }
     },
@@ -107,22 +111,36 @@
         }`;
     },
 
-    _getMonthDate() {
+    _getMonthDate(key1, key2) {
       let clearParams = {},
         month = new Date().getMonth() + 1,
-        year = new Date().getFullYear();
+        year = new Date().getFullYear(),
+        exist = false;
 
       let params = window.location.search.substr(1).split('&').map(param => {
         const aux = param.split('=');
         clearParams[aux[0]] = aux[1];
       });
 
-      if (Object.keys(clearParams).indexOf('month1') !== -1 &&
-        Object.keys(clearParams).indexOf('year1') !== -1){
-        month = clearParams['month1'];
-        year = clearParams['year1'];
+      if (Object.keys(clearParams).indexOf(key1) !== -1 &&
+        Object.keys(clearParams).indexOf(key2) !== -1){
+        month = clearParams[key1];
+        year = clearParams[key2];
+        exist = true;
       }
-      return {month, year};
+      return {month, year, exist};
+    },
+
+    _getCompareDates() {
+      const date1 = this._getMonthDate('month1', 'year1');
+      const date2 = this._getMonthDate('month2', 'year2');
+      let dates = {month1: date1.month, year1: date1.year,
+        month2: date2.month, year2: date2.year};
+
+      if (date1.exist && date2.exist) {
+        return Object.assign(dates, {error: false});
+      }
+      else return Object.assign(dates, {error: true});
     }
 
   });
