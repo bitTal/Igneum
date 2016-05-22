@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
   get 'month', to: 'welcome#month'
   get 'compare', to: 'welcome#compare'
-
   
   # get "/backoffice/users", to: redirect('/auth/google_oauth2')
 

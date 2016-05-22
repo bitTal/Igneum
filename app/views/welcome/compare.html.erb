@@ -10,13 +10,31 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 	<%= render "shared/header" %>
-
+	<div class="form">
+		<%= form_tag("/compare", method: "get") do %>
+			<div>
+				<%= label_tag :Año %>
+				<%= select_tag "year1", options_for_select(@years) %>
+				<%= label_tag :Mes %>
+				<%= select_tag "month1", options_for_select(@months) %>
+			</div>
+			<div>
+				<%= label_tag :Año %>
+				<%= select_tag "year2", options_for_select(@years) %>
+				<%= label_tag :Mes %>
+				<%= select_tag "month2", options_for_select(@months) %>
+				<%= submit_tag "Add" %>
+			</div>
+		<% end %>
+	</div>
 	<div class="compare-container">
-		<div id="map1" class="compare-map"></div>
-		<div id="map2" class="compare-map"></div>
+			<div id="map1" class="compare-map"></div>
+			<div id="map2" class="compare-map"></div>
 	</div>
 
 	<%= render "shared/footer" %>
+
+	
 	
 </body>
 </html>
