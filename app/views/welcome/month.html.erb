@@ -10,6 +10,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 	<%= render "shared/header" %>
+
+	<div class="form">
+		<%= form_tag("/month", method: "get") do %>
+			<%= label_tag :Año %>
+			<%= select_tag "year1", options_for_select(@years, selected: @year) %>
+			<%= label_tag :Mes %>
+			<%= select_tag "month1", options_for_select(@months, selected: @month) %>
+			<%= submit_tag "Add" %>
+		<% end %>
+	</div>
+
 	<div id="map"></div>
 
 	<%= render "shared/footer" %>

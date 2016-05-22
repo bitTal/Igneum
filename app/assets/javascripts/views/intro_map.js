@@ -7,14 +7,14 @@
  * @param  {Object} App Global object
  */
 
-var App = App || {};
-App.View = App.View || {};
+/*var App = App || {};
+App.View = App.View || {};*/
 
-App.View.Map = class Intro_Map extends Map{
+class Intro_Map extends Map{
 
   defaults() {
-    const month = this.getYearMonth().month + 1;
-    const year = this.getYearMonth().year;
+    const month = this.options.month || this.getYearMonth().month + 1;
+    const year = this.options.year || this.getYearMonth().year;
 
     return Object.assign( Map.prototype.defaults(), {
       markerCartocss: `#frs {
@@ -75,4 +75,4 @@ App.View.Map = class Intro_Map extends Map{
 
 }
 
-window.App = App;
+//window.App = App;
