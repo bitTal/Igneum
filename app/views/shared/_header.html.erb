@@ -1,7 +1,11 @@
 <header>
-	<div id="menuButton"></div>
+	<div id="menuButton">
+		<%= link_to 'Inicio', '/', 'data-no-turbolink'=>true %>
+		<%= link_to 'Mes', '/month', 'data-no-turbolink'=>true %>
+		<%= link_to 'Compara meses', '/compare', 'data-no-turbolink'=>true %>
+	</div>
 	<div id="contact">
-		<span>Contacto</span>
-		<span>Usuario</span>
+		<%= link_to 'Contacto', '/' %>
+		<%= link_to 'Usuarios', '/' %>
 	</div>
 </header>

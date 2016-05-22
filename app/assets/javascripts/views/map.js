@@ -53,7 +53,7 @@
         type: 'cartodb',
         sublayers: [{
           sql: this.options.query || this.defaults().query,
-          cartocss: this.options.cartocss || this.defaults().cartocss
+          cartocss: this.options.cartocss || this.defaults().cartocss,
         }]
       })
       .addTo(map);

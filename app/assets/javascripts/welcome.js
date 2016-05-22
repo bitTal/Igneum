@@ -90,20 +90,30 @@
      * Function to start the application
      */
     _start: function() {
-      new Intro_Map({el: 'map'});
-      new Map({el: 'map1', query: this._compare_query('05', '2016', '05', '2015'), cartocss: this._compare_cartocss(), defaultZoom : 3});
-      new Map({el: 'map2', query: this._compare_query('5', '2015', '5', '2016'), cartocss: this._compare_cartocss(), defaultZoom : 3});
-    }
+      const path = window.location.pathname;
 
-    
-    
+      if(path === '/') {
+        new Intro_Map({el: 'map'});
+      }
+      else if (path === '/month') {
+        new Intro_Map({el: 'map'});
+      }
+      else if (path === '/compare') {
+        new Map({el: 'map1', query: this._compare_query('05', '2016', '05', '2015'), 
+          cartocss: this._compare_cartocss(), defaultZoom : 3});
+        new Map({el: 'map2', query: this._compare_query('5', '2015', '5', '2016'), 
+          cartocss: this._compare_cartocss(), defaultZoom : 3});
+      }
+    }
 
   });
 
   function onReady() {
-    new WelcomeView({ el: document.body });
+    new WelcomeView();
   }
 
-  document.addEventListener('DOMContentLoaded', onReady);
+  //document.addEventListener('DOMContentLoaded', onReady);
+  $(document).ready(onReady);
+  $(document).on('page:load', onReady);
 
 })(window);

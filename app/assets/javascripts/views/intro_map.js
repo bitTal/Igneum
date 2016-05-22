@@ -26,15 +26,42 @@ class Intro_Map extends Map{
   }
 
   customizeMap(map) {
+    const self = this;
+
     cartodb.createLayer(map, {
       user_name: 'albafjez',
       type: 'cartodb',
       sublayers: [{
         sql: this.options.markerSql || this.defaults().markerSql,
-        cartocss: this.options.markerCartocss || this.defaults().markerCartocss
+        cartocss: this.options.markerCartocss || this.defaults().markerCartocss,
+        interactivity: 'town, cod_prov'
       }]
     })
-    .addTo(map);
+    .addTo(map)
+    .on('done', function(layer) {
+      layer.setInteraction(true);
+      layer.on('featureClick', function(e, latlng, pos, data) {
+        self.popUp(latlng, data, map);
+      });
+    });
+  }
+
+  popUp(latlng, data, map){
+    const latlng1 = L.latLng(latlng[0], latlng[1]);
+    const sql = new cartodb.SQL({ user: 'albafjez' });
+    const query = `SELECT nom_prov FROM spanish_adm2_provinces WHERE cod_prov='${data.cod_prov}'`;
+
+    sql.execute(query, { id: 3 })
+      .done(function(dataRows) {
+        const nom_prov = dataRows.rows[0].nom_prov;
+        const message = `<h1>${data.town}</h1>
+          <h2>${nom_prov}</h2>`;
+
+        L.popup()
+          .setLatLng(latlng1)
+          .setContent(message)
+          .openOn(map);
+    });
   }
 
   getYearMonth() {
