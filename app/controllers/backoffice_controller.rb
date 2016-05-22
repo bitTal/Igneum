@@ -43,15 +43,17 @@ class BackofficeController < ApplicationController
 
 		if params['town'] || params['municipios']
 			if params['town']
-				@town = params['town']	
+				@town = params['town']
 			elsif params['municipios']
 				@town =  Municipios.where(nombre: params['municipios'])[0]['nombre']
 			end
 
+			require 'open-uri'
 			require('yaml')
 			conf = YAML.load_file("#{Dir.pwd}/config/confidencial.yml") 
 			@town = normileze_string(@town)
 		    open("https://#{conf['cartodb_user']}.cartodb.com/api/v2/sql?q=INSERT INTO frs (town, date, country) VALUES ('#{@town}', now(), 'Spain')&api_key=#{conf['cartodb_api_key']}").read
+		    redirect_to action: 'edit'
 		end
 	end
 
