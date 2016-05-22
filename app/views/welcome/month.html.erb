@@ -11,6 +11,16 @@
 
 	<%= render "shared/header" %>
 
+	<div class="form">
+		<%= form_tag("/month", method: "get") do %>
+			<%= label_tag :Año %>
+			<%= select_tag "year1", options_for_select(@years) %>
+			<%= label_tag :Mes %>
+			<%= select_tag "month1", options_for_select(@months) %>
+			<%= submit_tag "Add" %>
+		<% end %>
+	</div>
+
 	<div id="map"></div>
 
 	<%= render "shared/footer" %>
