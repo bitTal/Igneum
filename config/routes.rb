@@ -26,8 +26,10 @@ Rails.application.routes.draw do
   get 'backoffice/edit', to: 'backoffice#edit'
   get 'backoffice/add_fire', to: 'backoffice#add_fire'
   post 'backoffice/add_fire', to: 'backoffice#create_fire'
+
+  get 'backoffice/close', to: 'backoffice#close'
   
-  get "/auth/google_oauth2/callback", to: 'backoffice#index'
+  get "/auth/google_oauth2/callback", to: 'backoffice#googleAuth'
   get 'auth/failure', to: redirect('/')
 
 

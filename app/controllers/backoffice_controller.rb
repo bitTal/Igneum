@@ -3,6 +3,12 @@ require "#{Dir.pwd}/config/utils/index.rb"
 class BackofficeController < ApplicationController
 
 	def index
+		if session[:user]
+			redirect_to action: 'edit'
+		end
+	end
+
+	def googleAuth
 		if request.env['omniauth.auth']
 			@auth = request.env['omniauth.auth']
 			@users = User.all
@@ -22,17 +28,20 @@ class BackofficeController < ApplicationController
 			session[:user]['id_user'] = nickname
 			session[:user]['auth_token'] = @auth['credentials']['token']
 			redirect_to action: "edit"
+		else redirect_to action: "index"
 		end
 	end
 
 	def edit
-		if !session[:user]['auth_token']
+		@a = session[:user]
+		if !session[:user]
 			redirect_to action: "index"
+			return
 		end
 	end
 
 	def add_fire
-		if !session[:user]['auth_token']
+		if !session[:user]
 			redirect_to action: "index"
 			return
 		end
@@ -44,7 +53,7 @@ class BackofficeController < ApplicationController
 	end
 
 	def create_fire
-		if !session[:user]['auth_token']
+		if !session[:user]
 			redirect_to action: "index"
 			return
 		end
@@ -68,7 +77,8 @@ class BackofficeController < ApplicationController
 	end
 
 	def close
-		reset_session
+		session.delete(:user)
+		redirect_to action: 'index'
 	end
 
 end
