@@ -4,7 +4,12 @@ class BackofficeController < ApplicationController
 
 	def index
 		if session[:user]
-			redirect_to action: 'edit'
+			if params['logout']
+				session.delete(:user)
+				redirect_to action: 'index'
+			else
+				redirect_to action: 'edit'
+			end
 		end
 	end
 
@@ -33,7 +38,6 @@ class BackofficeController < ApplicationController
 	end
 
 	def edit
-		@a = session[:user]
 		if !session[:user]
 			redirect_to action: "index"
 			return
@@ -71,14 +75,8 @@ class BackofficeController < ApplicationController
 			@town = normileze_string(@town)
 		    open("https://#{conf['cartodb_user']}.cartodb.com/api/v2/sql?q=INSERT INTO frs (town, date, country) VALUES ('#{@town}', now(), 'Spain')&api_key=#{conf['cartodb_api_key']}").read
 			flash[:var] = @town
-			
 		end
 		redirect_to action: 'add_fire'
-	end
-
-	def close
-		session.delete(:user)
-		redirect_to action: 'index'
 	end
 
 end
