@@ -1,0 +1,18 @@
+
+.form {
+	&.-compare {
+		form {
+			display: flex;
+			justify-content: space-between;
+
+			& > div {
+				display: flex;
+				flex-flow: column;
+
+				@media screen and (min-width: 800px) {
+					flex-flow: row nowrap;
+				}
+			}
+		}
+	}
+}
