@@ -48,6 +48,7 @@
 
       if(path === '/') {
         new Intro_Map({el: 'map'});
+        new Intro_Map({el: 'mini-map', attributions: '<span></span>'});
       }
       else if (path === '/month') {
         const date1 = this._getMonthDate('month1', 'year1');

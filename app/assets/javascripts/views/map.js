@@ -16,10 +16,7 @@
         setCenter: [39.555, -9.72],
         defaultZoom: 6,
         tileLayer: 'https://stamen-tiles-d.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png',
-        attributions: `&copy; "Map tiles by " <a href="http://stamen.com">Stamen Design</a>, 
-            under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. 
-            Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, 
-            under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.`,
+        attributions: ``,
         setZoom: [6, 13],
         southWest: [34.6378936, -15.49],
         northEast: [43.9913218, 5.3277839],
@@ -34,13 +31,23 @@
       };
     }
 
+    commonOptions() {
+      return {
+        scrollWheelZoom: false,
+        tileLayer: {
+          continuousWorld: false,
+          noWrap: true
+        }
+      };
+    }
+
     initialize(options) {
       this.options = options;
       this.createMap();  
     }
 
     createMap() {
-      const map = L.map(this.options.el).
+      const map = L.map(this.options.el, this.commonOptions()).
        setView(this.options.center || this.defaults().setCenter,
        this.options.defaultZoom || this.defaults().defaultZoom);
 
@@ -67,7 +74,8 @@
         subdomains: 'abcd',
         maxZoom: this.options.setZoom ? this.options.setZoom[1] : this.defaults().setZoom[1],
         minZoom: this.options.setZoom ? this.options.setZoom[0] : this.defaults().setZoom[0],
-        maxBounds: this.setBounds()
+        maxBounds: this.setBounds(),
+        scrollWheelZoom: false
       });
     }
 
