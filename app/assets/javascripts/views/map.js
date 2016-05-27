@@ -18,8 +18,8 @@
         tileLayer: 'https://stamen-tiles-d.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png',
         attributions: ``,
         setZoom: [6, 13],
-        southWest: [34.6378936, -15.49],
-        northEast: [43.9913218, 4.3277839],
+        southWest: [35.0378936, -15.49],
+        northEast: [43.9913218, 5.0277839],
         query: "SELECT * FROM spanish_adm2_provinces",
         cartocss: `#spanish_adm2_provinces {
               polygon-fill: #000000;

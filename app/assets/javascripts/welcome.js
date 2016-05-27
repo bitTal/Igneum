@@ -79,8 +79,7 @@
     setCompareMaps(canariasBounds) {
       const dates = this._getCompareDates();
       const generalSettings = {
-        cartocss: this._compare_cartocss(),
-        defaultZoom : 3
+        cartocss: this._compare_cartocss()
       };
       const settings1 = {
         query: this._compare_query(dates.month1, dates.year1, dates.month2, dates.year2), 
@@ -89,10 +88,10 @@
         query: this._compare_query(dates.month2, dates.year2, dates.month1, dates.year1), 
       };
         
-      const compareMap1 = new Map(Object.assign({el: 'map1'}, settings1, generalSettings));
-      const compareCanarias1 = new Map(Object.assign({el: 'mini-map1'}, settings1, canariasBounds, generalSettings));
-      const compareMap2 = new Map(Object.assign({el: 'map2'}, settings2, generalSettings));
-      const compareCanarias2 = new Map(Object.assign({el: 'mini-map2'}, settings2, canariasBounds, generalSettings));
+      const compareMap1 = new Map(Object.assign({el: 'map1', defaultZoom : 3}, settings1, generalSettings));
+      const compareCanarias1 = new Map(Object.assign({el: 'mini-map1', defaultZoom : 7}, settings1, canariasBounds, generalSettings));
+      const compareMap2 = new Map(Object.assign({el: 'map2', defaultZoom : 3}, settings2, generalSettings));
+      const compareCanarias2 = new Map(Object.assign({el: 'mini-map2', defaultZoom : 7}, settings2, canariasBounds, generalSettings));
     },
 
      _compare_query(month1, year1, month2, year2) {
