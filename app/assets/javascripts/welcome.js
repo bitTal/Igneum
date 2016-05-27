@@ -45,24 +45,53 @@
      */
     _start: function() {
       const path = window.location.pathname;
+      const canariasBounds = {
+        bounds: {
+          southWest: [27.577712,-18.974939], 
+          northEast: [29.479091,-13.06742]
+        },
+        center: [28.09973, -15.41343]
+      };
 
       if(path === '/') {
-        new Intro_Map({el: 'map'});
+        this.setRootMaps(canariasBounds);
       }
       else if (path === '/month') {
-        const date1 = this._getMonthDate('month1', 'year1');
-        new Intro_Map({el: 'map', month: date1.month, year: date1.year});
+        this.setMonthMaps(canariasBounds);
       }
       else if (path === '/compare') {
-        const dates = this._getCompareDates();
-
-        new Map({el: 'map1', query: this._compare_query(dates.month1, dates.year1,
-          dates.month2, dates.year2), 
-          cartocss: this._compare_cartocss(), defaultZoom : 3});
-        new Map({el: 'map2', query: this._compare_query(dates.month2, dates.year2,
-          dates.month1, dates.year1), 
-          cartocss: this._compare_cartocss(), defaultZoom : 3});
+        this.setCompareMaps(canariasBounds);
       }
+    },
+
+    setRootMaps(canariasBounds) {
+      const introPeninsula = new Intro_Map({el: 'map'});
+      const introCanarias = new Intro_Map(Object.assign({el: 'mini-map'}, canariasBounds));
+    },
+
+    setMonthMaps(canariasBounds) {
+      const date1 = this._getMonthDate('month1', 'year1');
+      const date1Object = { month: date1.month, year: date1.year };
+      const monthPeninsula = new Intro_Map(Object.assign({el: 'map'}, date1Object));
+      const introCanarias = new Intro_Map(Object.assign({el: 'mini-map'}, date1Object, canariasBounds));
+    },
+
+    setCompareMaps(canariasBounds) {
+      const dates = this._getCompareDates();
+      const generalSettings = {
+        cartocss: this._compare_cartocss()
+      };
+      const settings1 = {
+        query: this._compare_query(dates.month1, dates.year1, dates.month2, dates.year2), 
+      };
+      const settings2 = {
+        query: this._compare_query(dates.month2, dates.year2, dates.month1, dates.year1), 
+      };
+        
+      const compareMap1 = new Map(Object.assign({el: 'map1', defaultZoom : 3}, settings1, generalSettings));
+      const compareCanarias1 = new Map(Object.assign({el: 'mini-map1', defaultZoom : 7}, settings1, canariasBounds, generalSettings));
+      const compareMap2 = new Map(Object.assign({el: 'map2', defaultZoom : 3}, settings2, generalSettings));
+      const compareCanarias2 = new Map(Object.assign({el: 'mini-map2', defaultZoom : 7}, settings2, canariasBounds, generalSettings));
     },
 
      _compare_query(month1, year1, month2, year2) {
