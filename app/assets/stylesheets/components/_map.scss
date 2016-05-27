@@ -29,7 +29,6 @@
 
 .compare-container {
 	width: 100%;
-	height: 490px;
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
@@ -44,28 +43,28 @@
 	position: relative;
 	display: flex;
 	flex-flow: column;
+	margin-bottom: 10px;
 
 	&.-half {
 		width: 100%;
 		height: 100%;
 
 		@media screen and(min-width: 800px) {
-			width: 48%;
+			width: 49%;
 		}
 	}
-	
 }
 
 .compare-map {
 	width: 100%;
-	height: 80%;
+	height: 500px;
+	border-bottom: 2px solid grey;
 }
 
 .compare-canarias {
 	width: 100%;
-	height: 19%;
+	height: 160px;
 }
-
 
 .leaflet-control-scale {
 	display: none !important;
