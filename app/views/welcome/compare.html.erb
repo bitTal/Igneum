@@ -23,7 +23,9 @@
 						<%= select_tag "month1", options_for_select(@months, selected: @month1) %>
 					</div>
 				</div>
-				<%= submit_tag "Comparar" %>
+				<div class="btn-compare">
+					<%= submit_tag "Comparar" %>
+				</div>
 				<div>
 					<div>
 						<%= label_tag :Año %>
