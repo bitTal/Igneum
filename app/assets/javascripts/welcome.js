@@ -48,7 +48,15 @@
 
       if(path === '/') {
         new Intro_Map({el: 'map'});
-        new Intro_Map({el: 'mini-map', attributions: '<span></span>'});
+        new Intro_Map({
+          el: 'mini-map', 
+          attributions: '<span></span>',  
+          bounds: {
+            southWest: [27.577712,-18.974939], 
+            northEast: [29.479091,-13.06742]
+          },
+          center: [28.09973, -15.41343]
+        });
       }
       else if (path === '/month') {
         const date1 = this._getMonthDate('month1', 'year1');

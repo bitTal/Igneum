@@ -19,7 +19,7 @@
         attributions: ``,
         setZoom: [6, 13],
         southWest: [34.6378936, -15.49],
-        northEast: [43.9913218, 5.3277839],
+        northEast: [43.9913218, 4.3277839],
         query: "SELECT * FROM spanish_adm2_provinces",
         cartocss: `#spanish_adm2_provinces {
               polygon-fill: #000000;
