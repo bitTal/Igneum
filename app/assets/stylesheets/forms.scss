@@ -33,6 +33,7 @@ select, input {
 
 select {
 	background-color: grey;
+	border: 1px solid grey;
 }
 
 select:hover{
@@ -70,5 +71,5 @@ input {
 
 input:hover {
 	background-color: #A0CC52;
-	border: 0;
+	border: 2px solid #A0CC52;
 }
