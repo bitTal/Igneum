@@ -8,8 +8,15 @@
 </head>
 <body>
 
-<%= render 'shared/backoffice_menu'%>
+<%= 
+	if request.env['PATH_INFO'] != '/backoffice'
+		render 'shared/backoffice_menu'
+	end
+%>
 
+
+	
+<%=  %>
 <%= yield %>
 
 </body>
