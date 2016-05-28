@@ -1,0 +1,99 @@
+
+.wrap {
+	height: fit-contect;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	.backoffice-header {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		
+
+
+		
+	}
+
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-decoration: none;
+		width: 100%;
+		height: 100%;
+
+		
+
+		
+	}
+
+	.menu-item {
+		width: 55px;
+		height: 55px;
+		padding: 5px 5px;
+		border-radius: 50%;
+		background-color: red;
+	}
+
+	.edit {
+		padding: 5px 5px;
+		background-color: #A0CC52;
+		border: 2px solid #A0CC52;
+
+		& a {
+			color: white;
+		}
+	}
+
+	.edit:hover {
+		background-color: #666;
+		border: 2px solid #666;
+	}
+
+
+	.tools {
+		display: flex;
+		flex-flow: row nowrap;
+
+		.menu-item:first-child {
+			margin-left: 0;
+		}
+
+		.menu-item {
+			margin-left: 50px;
+			background-color: white;
+			border: 1px solid lightgrey;
+
+			& a {
+				color:#A0CC52;
+			}
+		}
+
+		.menu-item:hover {
+			background-color: grey;
+			border: 2px solid grey;
+
+			& a {
+				color: white;
+			}
+			
+		}
+	}
+
+	.close {
+			margin-left: 50px;
+			padding: 5px 5px;
+			background-color: #443D3D;
+			font-size: 30px;
+			font-family: arial;
+			border: 2px solid #443D3D;
+
+		& a {
+			color: #A0CC52;
+		}
+
+		&:hover a {
+			color: white;
+		}
+	}
+}

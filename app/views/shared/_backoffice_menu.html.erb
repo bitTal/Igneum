@@ -1,5 +1,10 @@
-<div>
-	<div><%= link_to 'Edit', 'edit' %></div>
-	<div><%= link_to 'Add fire', 'add_fire' %></div>
-	<div><%= link_to 'Close', '/backoffice?logout=true' %></div>
+<div class="wrap">
+	<div class="backoffice-header">
+		<div class="menu-item edit"><%= link_to 'Edit', 'edit' %></div>
+		<div class="tools">
+			<div class="menu-item"><%= link_to 'Add fire', 'add_fire' %></div>
+			<div class="menu-item"><%= link_to 'Add fire', 'add_fire' %></div>
+		</div>
+		<div class="close menu-item"><%= link_to 'x', '/backoffice?logout=true' %></div>
+	</div>
 </div>
