@@ -9,28 +9,30 @@
 	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	
-	<h1>Fires</h1>
+	<div class="back wrap">
+		<h1>Fires</h1>
 
-	<table>
-	  <thead>
-	    <tr>
-	      <th>Municipio</th>
-	      <th>Provincia</th>
-	      <th>Fecha</th>
-	    </tr>
-	  </thead>
+		<table class="back-fires">
+		  <thead>
+		    <tr>
+		      <th>Municipio</th>
+		      <th>Provincia</th>
+		      <th>Fecha</th>
+		    </tr>
+		  </thead>
 
-	  <tbody>
-	    <% @fires.each do |fire| %>
-	      <tr>
-	        <td><%= fire['town'] %></td>
-	        <td><%= fire['nom_prov'] %></td>
-	        <td><%= fire['date'] %></td>
-	      </tr>
-	    <% end %>
-	  </tbody>
-	</table>
-
+		  <tbody>
+		    <% @fires.each do |fire| %>
+		      <tr>
+		        <td><%= fire['town'] %></td>
+		        <td><%= fire['nom_prov'] %></td>
+		        <td><%= fire['date'] %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+	</body>
 </html>
 
 

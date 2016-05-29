@@ -1,0 +1,38 @@
+
+
+.back {
+	align-items: flex-start;
+	color: #443D3D;
+
+	form {
+		width: 100%;
+		padding: 3% 10%;
+	}
+
+	label {
+		margin-right: 8px;
+		font-weight: 700;
+	}
+
+	select {
+		margin-bottom: 20px;
+	}
+
+	input {
+		margin-left: 20px;
+	}
+}
+
+.back-title {
+	text-transform: lowercase;
+}
+
+.back-fires {
+	width: 100%;
+	text-align: center;
+	border-collapse: separate;
+
+	tbody tr:nth-child(2n+1) {
+		background-color: lightgrey;
+	}
+}
