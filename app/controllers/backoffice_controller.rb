@@ -56,9 +56,9 @@ class BackofficeController < ApplicationController
 		@provs = Provincias.all
 		@prov = params['provincia'] ? params['provincia'] : '2'
 		@municipios = Municipios.where(id_provincia: @prov)
+
 		@town = flash[:town]
 		@province = flash[:province]
-
 	end
 
 	def create_fire

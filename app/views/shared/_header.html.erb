@@ -1,11 +1,22 @@
 <header>
-	<div id="menuButton">
-		<%= link_to 'Inicio', '/', 'data-no-turbolink'=>true %>
-		<%= link_to 'Mes', '/month', 'data-no-turbolink'=>true %>
-		<%= link_to 'Compara meses', '/compare', 'data-no-turbolink'=>true %>
-	</div>
-	<div id="contact">
-		<%= link_to 'Contacto', '/' %>
-		<%= link_to 'Usuarios', '/' %>
+	<div class="wrap">
+		<div id="menu-button" class="menu-button">
+			<a onclick="toggleMenu()" class="icon"><img src="">a</a>
+			<%= link_to 'Inicio', '/', 'data-no-turbolink'=>true %>
+			<%= link_to 'Mes', '/month', 'data-no-turbolink'=>true %>
+			<%= link_to 'Compara', '/compare', 'data-no-turbolink'=>true %>
+		</div>
+		<div class="user">
+			<%= link_to 'U', '/', 'data-no-turbolink'=>true  %>
+		</div>
 	</div>
 </header>
+
+<script type="text/javascript">
+	function toggleMenu() {
+		const menuButton = document.getElementById("menu-button");
+		const open = menuButton.getAttribute("class").indexOf('is-open') !== -1;
+		open ? menuButton.setAttribute("class", "menu-button") :
+			menuButton.setAttribute("class", "menu-button is-open");
+	}
+</script>

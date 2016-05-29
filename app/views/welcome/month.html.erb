@@ -12,13 +12,15 @@
 	<%= render "shared/header" %>
 
 	<div class="form">
-		<%= form_tag("/month", method: "get") do %>
-			<%= label_tag :Año %>
-			<%= select_tag "year1", options_for_select(@years, selected: @year) %>
-			<%= label_tag :Mes %>
-			<%= select_tag "month1", options_for_select(@months, selected: @month) %>
-			<%= submit_tag "Add" %>
-		<% end %>
+		<div class="wrap">
+			<%= form_tag("/month", method: "get") do %>
+				<%= label_tag :Año %>
+				<%= select_tag "year1", options_for_select(@years, selected: @year) %>
+				<%= label_tag :Mes %>
+				<%= select_tag "month1", options_for_select(@months, selected: @month) %>
+				<%= submit_tag "Visualizar" %>
+			<% end %>
+		</div>
 	</div>
 	
 	<div class="maps-container">
