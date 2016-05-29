@@ -45,6 +45,8 @@ class BackofficeController < ApplicationController
 			redirect_to action: "index"
 			return
 		end
+
+		@fires = get_fires()
 	end
 
 	def add_fire
@@ -93,11 +95,7 @@ class BackofficeController < ApplicationController
 			return
 		end
 
-		current_date = Time.now
-		where = "WHERE EXTRACT(month FROM date)='#{current_date.month}' AND EXTRACT(year FROM date)='#{current_date.year}'"
-		sql = "SELECT * FROM #{@@conf['cartodb_table1']} #{where}"
-        uri = "https://#{@@conf['cartodb_user']}.cartodb.com/api/v2/sql?q=#{sql}"
-        @fires = JSON.parse(open(uri).read)['rows']
+		@fires = get_fires()
         @id = flash[:deleted_fire]
 	end
 
@@ -118,6 +116,13 @@ class BackofficeController < ApplicationController
 		redirect_to action: 'show_delete'
 	end
 
+	def get_fires
+		current_date = Time.now
+		where = "WHERE EXTRACT(month FROM date)='#{current_date.month}' AND EXTRACT(year FROM date)='#{current_date.year}'"
+		sql = "SELECT * FROM #{@@conf['cartodb_table1']} #{where}"
+        uri = "https://#{@@conf['cartodb_user']}.cartodb.com/api/v2/sql?q=#{sql}"
+        return JSON.parse(open(uri).read)['rows']
+	end
 
 	def normalize_string_int(cod_prov)
 		cod_provs = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09']
