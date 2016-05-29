@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   get "/auth/google_oauth2/callback", to: 'backoffice#googleAuth'
   get 'auth/failure', to: redirect('/')
 
+  get 'backoffice/show_delete', to: 'backoffice#show_delete'
+  post 'backoffice/show_delete', to: 'backoffice#delete_fire'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -45,6 +45,8 @@ class BackofficeController < ApplicationController
 			redirect_to action: "index"
 			return
 		end
+
+		@fires = get_fires()
 	end
 
 	def add_fire
@@ -71,13 +73,14 @@ class BackofficeController < ApplicationController
 			town =  Municipios.where(nombre: params['municipios'])[0][:nombre]
 			norm_town = normileze_string(town)
 			province = Provincias.where(id_provincia: params['provincias'])[0][:provincia]
+			norm_province = normileze_string(province)
 			cod_prov = normalize_string_int(params['provincias'])
 
-			address = "#{norm_town},+#{province},+Spain"
+			address = "#{norm_town.split(' ').join('+')},+#{norm_province.split(' ').join('+')},+Spain"
 			result = JSON.parse(open("https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&key=#{@@conf['geocoding_api_key']}").read)
 			coordinates = result['results'][0]['geometry']['location']
-			insert = "INSERT INTO frs (town, cod_prov, date, the_geom) 
-		    	VALUES ('#{norm_town}', '#{cod_prov}', now(), ST_SetSRID(ST_Point(#{coordinates['lng']}, #{coordinates['lat']}),4326))"
+			insert = "INSERT INTO #{@@conf['cartodb_table1']} (town, cod_prov, nom_prov, date, the_geom) 
+		    	VALUES ('#{norm_town}', '#{cod_prov}', '#{norm_province}', now(), ST_SetSRID(ST_Point(#{coordinates['lng']}, #{coordinates['lat']}),4326))"
 		 
 		    open("https://#{@@conf['cartodb_user']}.cartodb.com/api/v2/sql?q=#{insert}&api_key=#{@@conf['cartodb_api_key']}").read
 			flash[:town] = town
@@ -86,6 +89,40 @@ class BackofficeController < ApplicationController
 		redirect_to action: 'add_fire'
 	end
 
+	def show_delete
+		if !session[:user]
+			redirect_to action: "index"
+			return
+		end
+
+		@fires = get_fires()
+        @id = flash[:deleted_fire]
+	end
+
+	def delete_fire
+		if !session[:user]
+			redirect_to action: "index"
+			return
+		end
+
+		if params['id']
+			where = "WHERE cartodb_id = '#{params['id']}'"
+			sql = "DELETE FROM #{@@conf['cartodb_table1']} #{where}"
+        	uri = "https://#{@@conf['cartodb_user']}.cartodb.com/api/v2/sql?q=#{sql}&api_key=#{@@conf['cartodb_api_key']}"
+        	open(uri).read;
+			flash[:deleted_fire] = params['id']
+		end
+
+		redirect_to action: 'show_delete'
+	end
+
+	def get_fires
+		current_date = Time.now
+		where = "WHERE EXTRACT(month FROM date)='#{current_date.month}' AND EXTRACT(year FROM date)='#{current_date.year}'"
+		sql = "SELECT * FROM #{@@conf['cartodb_table1']} #{where}"
+        uri = "https://#{@@conf['cartodb_user']}.cartodb.com/api/v2/sql?q=#{sql}"
+        return JSON.parse(open(uri).read)['rows']
+	end
 
 	def normalize_string_int(cod_prov)
 		cod_provs = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09']

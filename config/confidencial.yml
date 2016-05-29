@@ -5,4 +5,7 @@ client_secret: 'g-o1vAeFstijR3OmGc41_Ot-'
 cartodb_api_key: 'a18e584210565ef6dc018c76e40e59cd0c9a2a22'
 cartodb_user: 'albafjez'
 
+cartodb_table1: 'frs'
+cartodb_table2: 'spanish_adm2_provinces'
+
 geocoding_api_key: 'AIzaSyDmNlTvZy0orqhC9wtdYxIP9lTPi0J4rcs'
