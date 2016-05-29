@@ -20,11 +20,10 @@
 	}
 
 	.menu-item {
-		width: 55px;
-		height: 55px;
+		width: 45px;
+		height: 45px;
 		padding: 5px 5px;
 		border-radius: 50%;
-		background-color: red;
 	}
 
 	.edit {
@@ -53,6 +52,7 @@
 
 		.menu-item {
 			margin-left: 50px;
+			text-align: center;
 			background-color: white;
 			border: 1px solid lightgrey;
 
