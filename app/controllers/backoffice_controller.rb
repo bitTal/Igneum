@@ -77,7 +77,7 @@ class BackofficeController < ApplicationController
 			address = "#{norm_town.split(' ').join('+')},+#{norm_province.split(' ').join('+')},+Spain"
 			result = JSON.parse(open("https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&key=#{@@conf['geocoding_api_key']}").read)
 			coordinates = result['results'][0]['geometry']['location']
-			insert = "INSERT INTO frs (town, cod_prov, nom_prov, date, the_geom) 
+			insert = "INSERT INTO #{@@conf['cartodb_table1']} (town, cod_prov, nom_prov, date, the_geom) 
 		    	VALUES ('#{norm_town}', '#{cod_prov}', '#{norm_province}', now(), ST_SetSRID(ST_Point(#{coordinates['lng']}, #{coordinates['lat']}),4326))"
 		 
 		    open("https://#{@@conf['cartodb_user']}.cartodb.com/api/v2/sql?q=#{insert}&api_key=#{@@conf['cartodb_api_key']}").read
@@ -85,6 +85,37 @@ class BackofficeController < ApplicationController
 			flash[:province] = province
 		end
 		redirect_to action: 'add_fire'
+	end
+
+	def show_delete
+		if !session[:user]
+			redirect_to action: "index"
+			return
+		end
+
+		current_date = Time.now
+		where = "WHERE EXTRACT(month FROM date)='#{current_date.month}' AND EXTRACT(year FROM date)='#{current_date.year}'"
+		sql = "SELECT * FROM #{@@conf['cartodb_table1']} #{where}"
+        uri = "https://#{@@conf['cartodb_user']}.cartodb.com/api/v2/sql?q=#{sql}"
+        @fires = JSON.parse(open(uri).read)['rows']
+        @id = flash[:deleted_fire]
+	end
+
+	def delete_fire
+		if !session[:user]
+			redirect_to action: "index"
+			return
+		end
+
+		if params['id']
+			where = "WHERE cartodb_id = '#{params['id']}'"
+			sql = "DELETE FROM #{@@conf['cartodb_table1']} #{where}"
+        	uri = "https://#{@@conf['cartodb_user']}.cartodb.com/api/v2/sql?q=#{sql}&api_key=#{@@conf['cartodb_api_key']}"
+        	open(uri).read;
+			flash[:deleted_fire] = params['id']
+		end
+
+		redirect_to action: 'show_delete'
 	end
 
 
