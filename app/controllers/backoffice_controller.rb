@@ -1,6 +1,9 @@
 require "#{Dir.pwd}/config/utils/index.rb"
 
 class BackofficeController < ApplicationController
+	require 'open-uri'
+	require('yaml')
+	@@conf = YAML.load_file("#{Dir.pwd}/config/confidencial.yml") 
 
 	def index
 		if session[:user]
@@ -53,7 +56,9 @@ class BackofficeController < ApplicationController
 		@provs = Provincias.all
 		@prov = params['provincia'] ? params['provincia'] : '2'
 		@municipios = Municipios.where(id_provincia: @prov)
-		@town = flash[:var]
+
+		@town = flash[:town]
+		@province = flash[:province]
 	end
 
 	def create_fire
@@ -62,21 +67,30 @@ class BackofficeController < ApplicationController
 			return
 		end
 
-		if params['town'] || params['municipios']
-			if params['town']
-				@town = params['town']
-			elsif params['municipios']
-				@town =  Municipios.where(nombre: params['municipios'])[0]['nombre']
-			end
+		if params['municipios'] && params['provincias']
+			town =  Municipios.where(nombre: params['municipios'])[0][:nombre]
+			norm_town = normileze_string(town)
+			province = Provincias.where(id_provincia: params['provincias'])[0][:provincia]
+			cod_prov = normalize_string_int(params['provincias'])
 
-			require 'open-uri'
-			require('yaml')
-			conf = YAML.load_file("#{Dir.pwd}/config/confidencial.yml") 
-			@town = normileze_string(@town)
-		    open("https://#{conf['cartodb_user']}.cartodb.com/api/v2/sql?q=INSERT INTO frs (town, date, country) VALUES ('#{@town}', now(), 'Spain')&api_key=#{conf['cartodb_api_key']}").read
-			flash[:var] = @town
+			address = "#{norm_town},+#{province},+Spain"
+			result = JSON.parse(open("https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&key=#{@@conf['geocoding_api_key']}").read)
+			coordinates = result['results'][0]['geometry']['location']
+			insert = "INSERT INTO frs (town, cod_prov, date, the_geom) 
+		    	VALUES ('#{norm_town}', '#{cod_prov}', now(), ST_SetSRID(ST_Point(#{coordinates['lng']}, #{coordinates['lat']}),4326))"
+		 
+		    open("https://#{@@conf['cartodb_user']}.cartodb.com/api/v2/sql?q=#{insert}&api_key=#{@@conf['cartodb_api_key']}").read
+			flash[:town] = town
+			flash[:province] = province
 		end
 		redirect_to action: 'add_fire'
+	end
+
+
+	def normalize_string_int(cod_prov)
+		cod_provs = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09']
+		cod_int = cod_prov.to_i
+		return cod_int < 10 ? cod_provs[cod_int] : cod_prov
 	end
 
 end

@@ -12,12 +12,6 @@
 	<h1>ADD</h1>
 
 	<%= form_tag :action=>:create_fire do %>
-	  <%= label_tag :town, "Town:" %>
-	  <%= text_field_tag :town %>
-	  <%= submit_tag "Add" %>
-	<% end %><br/><hr/>
-
-	<%= form_tag :action=>:add_fire do %>
 		<%= label_tag :Provincias %>
 		<%= select_tag "provincias", options_from_collection_for_select(@provs, "id_provincia", "provincia", @prov), :onChange => 'set_towns()'%><br/>
 		<%= label_tag :Municipios %>
@@ -26,7 +20,7 @@
 	<% end %>
 
 	<%= if @town
-		content_tag :p, "Fire in '#{@town}' added."
+		content_tag :p, "Fire in '#{@town}, #{@province}' added."
 	end %><br/>
 
 	<script type="text/javascript">
@@ -34,7 +28,7 @@
 			window.location.href = window.location.hash + '?provincia=' + document.getElementById('provincias').value;
 		}
 	</script>
-	
+
 </html>
 
 
