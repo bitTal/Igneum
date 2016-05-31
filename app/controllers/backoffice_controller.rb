@@ -122,7 +122,7 @@ class BackofficeController < ApplicationController
 			return
 		end
 
-        @user_name = flash[:user]
+        @user = flash[:user]
         @error = flash[:error_user]
 	end
 
