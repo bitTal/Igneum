@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   get 'backoffice/show_delete', to: 'backoffice#show_delete'
   post 'backoffice/show_delete', to: 'backoffice#delete_fire'
 
+  get 'backoffice/add_user', to: 'backoffice#add_user'
+  post 'backoffice/add_user', to: 'backoffice#create_user'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

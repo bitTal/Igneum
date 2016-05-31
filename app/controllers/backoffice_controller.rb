@@ -116,6 +116,32 @@ class BackofficeController < ApplicationController
 		redirect_to action: 'show_delete'
 	end
 
+	def add_user
+		if !session[:user]
+			redirect_to action: "index"
+			return
+		end
+
+        @user_name = flash[:user]
+        @error = flash[:error_user]
+	end
+
+	def create_user
+		if params[:user]
+			type = params[:type] && params[:type] != '' ? params[:type] : 'U'
+			@user = User.new({user: params[:user], user_type: type});
+
+			if @user.save
+				flash[:user] = params[:user]
+			else flash[:error_user] = true
+			end
+		end
+		redirect_to action: 'add_user'
+	end
+
+
+	## Support fucntions
+
 	def get_fires
 		current_date = Time.now
 		where = "WHERE EXTRACT(month FROM date)='#{current_date.month}' AND EXTRACT(year FROM date)='#{current_date.year}'"
