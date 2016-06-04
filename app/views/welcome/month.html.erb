@@ -27,6 +27,21 @@
 		<div id="map"></div>
 		<div id="mini-map" class="canarias"></div>
 	</div>
+
+	<div class="month-fires">
+		<div class="wrap">
+			<h1><%= @auxMonths[@month] %> de <%= @year %></h1>
+			<h2><%= @fires.length %> incendios</h2>
+			<p>Se han producido incendios en <%= @diff_provs %> provincias diferentes</p>
+			<p>Las provincias con mayor número son: </p>
+			<ul>
+				<%	@max_provs.each do |max_prov| %>
+					<li><%= max_prov['nom_prov'] %></li>
+				<% end	%>
+			</ul>
+			<p>con un total de <%= @max_fires_prov %> incendios.</p>
+		</div>
+	</div>
 	
 
 	<%= render "shared/footer" %>
