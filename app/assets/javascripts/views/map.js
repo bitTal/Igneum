@@ -94,8 +94,8 @@
 
     popUp(latlng, data, map){
       const latlng1 = L.latLng(latlng[0], latlng[1]);
-      const message = `<h1>${data.nom_prov}</h1>
-        <h2>${data.a} fuegos</h2>`;
+      const message = `<h1 class="text title">${data.nom_prov}</h1>
+        <span class="number">${data.a}</span><span class="text claim"> fuegos</span>`;
 
       L.popup()
         .setLatLng(latlng1)

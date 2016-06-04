@@ -1,0 +1,29 @@
+
+.leaflet-popup-content-wrapper {
+	padding: 17px 40px 16px 30px !important;
+	border-radius: 2px !important;
+}
+
+.leaflet-popup-content {
+	margin: 0 !important;
+	color: #443D3D;
+
+	.title {
+		margin: 0;
+		margin-bottom: 8px;
+		font-size: 20px;
+	}
+
+	.number {
+		font-family: arial;
+		font-size: 19px;
+		font-weight: 500;
+	}
+
+	.claim {
+		font-family: arial;
+		font-size: 17px;
+		font-weight: 500;
+	}
+
+}
