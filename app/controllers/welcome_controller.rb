@@ -31,6 +31,8 @@ class WelcomeController < ApplicationController
 		@year2 = params['year2'] || Date.today.year
 
 		@most_fires = most_fires(@month1, @year1, @month2, @year2)
+		@total1 = total_fires(@month1, @year1)
+		@total2 = total_fires(@month2, @year2)
 	end
 
 
