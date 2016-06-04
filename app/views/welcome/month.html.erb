@@ -31,18 +31,19 @@
 	<div class="month-fires">
 		<div class="wrap">
 			<h1><%= @auxMonths[@month] %> de <%= @year %></h1>
-			<h2><%= @fires.length %> incendios</h2>
-			<p>Se han producido incendios en <%= @diff_provs %> provincias diferentes</p>
-			<p>Las provincias con mayor número son: </p>
-			<ul>
-				<%	@max_provs.each do |max_prov| %>
-					<li><%= max_prov['nom_prov'] %></li>
-				<% end	%>
-			</ul>
-			<p>con un total de <%= @max_fires_prov %> incendios.</p>
+			<h2><%= @fires.length %> incendios en toda España</h2>
+			<div class="month-content">
+				<p class="diff-provinces">Se han producido en <%= @diff_provs %> provincias diferentes.</p>
+				<p class="text-max-provinces">Las provincias con mayor número son: </p>
+				<ul class="max-provinces">
+					<%	@max_provs.each do |max_prov| %>
+						<li><%= max_prov['nom_prov'] %></li>
+					<% end	%>
+				</ul>
+				<p class="text-max-provinces">con un total de <%= @max_fires_prov %> incendios cada una.</p>
+			</div>
 		</div>
 	</div>
-	
 
 	<%= render "shared/footer" %>
 	
