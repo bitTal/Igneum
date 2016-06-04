@@ -7,9 +7,6 @@
  * @param  {Object} App Global object
  */
 
-/*var App = App || {};
-App.View = App.View || {};*/
-
 class Intro_Map extends Map{
 
   defaults() {
@@ -72,7 +69,5 @@ class Intro_Map extends Map{
       month: date.getMonth()
     };
   }
-
 }
 
-//window.App = App;
