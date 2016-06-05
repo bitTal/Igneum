@@ -12,7 +12,7 @@
 	<%= render "shared/header" %>
 	<div class="form -compare">
 		<div class="wrap">
-		
+
 			<%= form_tag("/compare", method: "get") do %>
 				<div>
 					<div>
@@ -50,7 +50,7 @@
 			<div id="mini-map2" class="compare-canarias"></div>
 		</div>
 	</div>
-	<div class="month-fires">
+	<div class="compare-fires">
 		<div class="wrap">
 			<% if @month1 == @month2 && @year1 == @year2 %>
 				<h1>Está seleccionado <%= @auxMonths[@month1.to_i-1] %> de <%= @year1 %> para ambos mapas</h1>
