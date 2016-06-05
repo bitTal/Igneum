@@ -15,9 +15,9 @@
 		<div class="wrap">
 			<%= form_tag("/month", method: "get") do %>
 				<%= label_tag :Año %>
-				<%= select_tag "year1", options_for_select(@years, selected: @year) %>
+				<%= select_tag "year1", options_for_select(@years, :selected=>@year) %>
 				<%= label_tag :Mes %>
-				<%= select_tag "month1", options_for_select(@months, selected: @month) %>
+				<%= select_tag "month1", options_for_select(@months, :selected=>@month.to_i.to_s) %>
 				<%= submit_tag "Visualizar" %>
 			<% end %>
 		</div>
