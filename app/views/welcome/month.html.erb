@@ -30,7 +30,7 @@
 
 	<div class="month-fires">
 		<div class="wrap">
-			<h1><%= @auxMonths[@month.to_i] %> de <%= @year %></h1>
+			<h1><%= @auxMonths[@month.to_i-1] %> de <%= @year %></h1>
 			<h2><%= @fires.length %> incendios en toda España</h2>
 
 			<% if @max_fires_prov != 0 %>
