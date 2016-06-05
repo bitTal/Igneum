@@ -26,9 +26,9 @@ class WelcomeController < ApplicationController
 			'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 		@months = @auxMonths.map.with_index(1).to_a
 		@years = ['2016', '2015'];
-		@month1 = params['month1'] || Date.today.month
+		@month1 = normalize_string_int(params['month1'] || Date.today.month)
 		@year1 = params['year1'] || Date.today.year
-		@month2 = params['month2'] || Date.today.month
+		@month2 = normalize_string_int(params['month2'] || Date.today.month)
 		@year2 = params['year2'] || Date.today.year
 
 		@most_fires = most_fires(@month1, @year1, @month2, @year2)
@@ -79,7 +79,11 @@ class WelcomeController < ApplicationController
 	end
 
 	def total_fires(month, year)
-		return get_fires(month, year)[0].length
+		where = "WHERE EXTRACT(month FROM date)='#{month}' AND EXTRACT(year FROM date)='#{year}'"
+		sql = "SELECT count(cod_prov) as total FROM #{@@conf['cartodb_table1']} #{where}"
+        uri = "https://#{@@conf['cartodb_user']}.cartodb.com/api/v2/sql?q=#{sql}"
+        request = open(uri).read
+        return JSON.parse(request)['rows'][0]['total']
 	end
 
 	def most_fires(month1, year1, month2, year2)
