@@ -48,8 +48,28 @@
 			<div id="map2" class="compare-map"></div>
 			<div id="mini-map2" class="compare-canarias"></div>
 		</div>
-
 	</div>
+	<div class="month-fires">
+		<div class="wrap">
+			<% if @month1 != @month2 && year1 != year2 %>
+		
+				<% if @most_fires > 0 %>
+					<h1><%= @auxMonths[@month1] %> de <%= @year1 %> ha tenido más incendios forestales que <%= @auxMonths[@month2] %> de <%= @year2 %></h1>
+					<h2>Con un total de <%= @total1 %> frente a <%= @total2 %> fuegos</h2>
+				<% elsif @most_fires < 0 %>
+					<h1><%= @auxMonths[@month2] %> de <%= @year2 %> ha tenido más incendios forestales que <%= @@auxMonths[month1 ]%> de <%= @year2 %></h1>
+					<h2>Con un total de <%= @total2 %> frente a <%= @total1 %> fuegos</h2>
+				<% else @most_fires > 0 %>
+					<h1><%= @auxMonths[@month1] %> de <%= @year1 %> y <%= @auxMonths[@month2] %> de <%= @year2 %> han tenido el mismo número de incendios</h1>
+					<h2>Con un total de <%= @total1 %> fuegos</h2>
+				<% end %>
+			<% else %>
+				<h1>Está seleccionado <%= @auxMonths[@month1] %> de <%= @year1 %> para ambos mapas</h1>
+				<h2>Con un total de <%= @total1 %> incendios</h2>
+			<% end %>
+		</div>
+	</div>
+
 
 	<%= render "shared/footer" %>
 

@@ -7,9 +7,6 @@
  * @param  {Object} App Global object
  */
 
-/*var App = App || {};
-App.View = App.View || {};*/
-
 class Intro_Map extends Map{
 
   defaults() {
@@ -54,8 +51,8 @@ class Intro_Map extends Map{
     sql.execute(query, { id: 3 })
       .done(function(dataRows) {
         const nom_prov = dataRows.rows[0].nom_prov;
-        const message = `<h1>${data.town}</h1>
-          <h2>${nom_prov}</h2>`;
+        const message = `<h1 class="text title">${data.town}</h1>
+          <h2 class="text claim">${nom_prov}</h2>`;
 
         L.popup()
           .setLatLng(latlng1)
@@ -72,7 +69,5 @@ class Intro_Map extends Map{
       month: date.getMonth()
     };
   }
-
 }
 
-//window.App = App;

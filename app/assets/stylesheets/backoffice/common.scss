@@ -14,11 +14,11 @@
 		font-weight: 700;
 	}
 
-	select {
+	select, input {
 		margin-bottom: 20px;
 	}
 
-	input {
+	input[type=submit] {
 		margin-left: 20px;
 	}
 }

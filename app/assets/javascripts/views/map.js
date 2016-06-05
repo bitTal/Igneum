@@ -5,10 +5,6 @@
  * @param  {Object} App Global object
  */
 
-//(function(App) {
-  //var App = App || {};
-  //App.View = App.View || {};
-
   class Map extends Backbone.View {
 
     defaults() {
@@ -47,6 +43,7 @@
     }
 
     createMap() {
+      const self = this;
       const map = L.map(this.options.el, this.commonOptions()).
        setView(this.options.center || this.defaults().setCenter,
        this.options.defaultZoom || this.defaults().defaultZoom);
@@ -61,9 +58,18 @@
         sublayers: [{
           sql: this.options.query || this.defaults().query,
           cartocss: this.options.cartocss || this.defaults().cartocss,
+          interactivity: this.options.popup ? 'nom_prov, a' : ''
         }]
       })
-      .addTo(map);
+      .addTo(map)
+      .on('done', function(layer) {
+        if(self.options.popup || false) {
+          layer.setInteraction(true);
+          layer.on('featureClick', function(e, latlng, pos, data) {
+            self.popUp(latlng, data, map);
+          });
+        }
+      });
 
       this.customizeMap(map);
     }
@@ -86,11 +92,18 @@
       return bounds;
     }
 
+    popUp(latlng, data, map){
+      const latlng1 = L.latLng(latlng[0], latlng[1]);
+      const message = `<h1 class="text title">${data.nom_prov}</h1>
+        <span class="number">${data.a}</span><span class="text claim"> fuegos</span>`;
+
+      L.popup()
+        .setLatLng(latlng1)
+        .setContent(message)
+        .openOn(map);
+    }
+
     customizeMap(map) {}
 
   }
-
-//window.App = App;
-
-//})(window.App);
 

@@ -1,13 +1,16 @@
 <header>
 	<div class="wrap">
 		<div id="menu-button" class="menu-button">
-			<a onclick="toggleMenu()" class="icon"><img src="">a</a>
-			<%= link_to 'Inicio', '/', 'data-no-turbolink'=>true %>
+			<div class="logo-container">
+				<a href="/" class="logo" data-no-turbolink="true"><img src="">I</a>
+				<a onclick="toggleMenu()" class="logo"><img src="">></a>
+			</div>
+
 			<%= link_to 'Mes', '/month', 'data-no-turbolink'=>true %>
 			<%= link_to 'Compara', '/compare', 'data-no-turbolink'=>true %>
 		</div>
 		<div class="user">
-			<%= link_to 'U', '/', 'data-no-turbolink'=>true  %>
+			<h1 class="forest-category">5932</h1>
 		</div>
 	</div>
 </header>

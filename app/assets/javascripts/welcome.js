@@ -79,7 +79,8 @@
     setCompareMaps(canariasBounds) {
       const dates = this._getCompareDates();
       const generalSettings = {
-        cartocss: this._compare_cartocss()
+        cartocss: this._compare_cartocss(),
+        popup: true
       };
       const settings1 = {
         query: this._compare_query(dates.month1, dates.year1, dates.month2, dates.year2), 
