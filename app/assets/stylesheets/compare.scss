@@ -21,3 +21,19 @@
 		}
 	}
 }
+
+
+.compare-fires {
+	background-color: #A0CC52;
+
+	.wrap {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		color: #443D3D;
+		text-align: center;		
+	}
+}
+

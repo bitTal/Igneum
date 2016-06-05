@@ -108,6 +108,7 @@
 
         select case when a > b then 2
               when a = 0 and b = 0 then -1
+              when a = 0 and b != 0 then -1
               when a = b then 1
               when a < b then 0
               else -1 end as e, the_geom, the_geom_webmercator, nom_prov, a, b from q`;
