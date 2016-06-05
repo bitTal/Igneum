@@ -1,0 +1,125 @@
+
+.image-container {
+	width: 100%;
+	height: 150px;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	@media screen and (min-width: 500px) {
+		height: 200px;
+	}
+
+	@media screen and (min-width: 768px) {
+		height: 300px;
+	}
+
+	@media screen and (min-width: 1024px) {
+		height: 400px;
+	}
+}
+
+.images-container {
+	display: flex;
+	width: 100%;
+	height: 150px;
+
+	@media screen and (min-width: 500px) {
+		height: 350px;
+	}
+
+	@media screen and (min-width: 768px) {
+		height: 550px;
+	}
+
+	@media screen and (min-width: 1024px) {
+		height: 700px;
+	}
+
+	& div {
+		width: 50%;
+		height: 100%;
+	}
+}
+
+#i1 {
+	background-image: url('https://googledrive.com/host/0BwccMmePX0KIbkQxanlLdHhCUkk');
+	background-position: center 20%;
+}
+
+#i2 {
+	height: 90px;
+	background-image: url('https://googledrive.com/host/0BwccMmePX0KIMkFjUXoxMDQyNVk');
+	background-position: 55% 36%;
+	background-size: 100%;
+
+	@media screen and (min-width: 500px) {
+		height: 200px;
+	}
+
+	@media screen and (min-width: 768px) {
+		height: 300px;
+	}
+
+	@media screen and (min-width: 1024px) {
+		height: 400px;		
+	}
+}
+
+#i3 {
+	background-image: url('https://googledrive.com/host/0BwccMmePX0KITnNkSzZEajBHU0U');
+	background-position: center center;
+	background-size: cover;
+}
+
+#i4 {
+	background-image: url('https://googledrive.com/host/0BwccMmePX0KIQUlnYzU3NzcweWM');
+	background-position: right 20%;
+	background-size: cover;
+}
+
+#i5 {
+	background-image: url('https://googledrive.com/host/0BwccMmePX0KIOElNcUlDVDAzbVU');
+	background-position: center center;
+}
+
+#i6 {
+	background-image: url('https://googledrive.com/host/0BwccMmePX0KIa1FSWUFfZTQ5Nmc');
+	background-position: center 20%;
+}
+
+#i7 {
+	background-image: url('https://googledrive.com/host/0BwccMmePX0KIMk1penlwN0F6M3c');
+	background-position: center 20%;
+}
+
+#i8 {
+	height: 300px;
+	background-image: url('https://googledrive.com/host/0BwccMmePX0KIWlBlRjBQazdSczA');
+	background-position: center 45%;
+
+	@media screen and (min-width: 500px) {
+		height: 370px;
+		background-position: center 25%;
+	}
+
+	@media screen and (min-width: 700px) {
+		height: 550px;
+		background-position: center 10%;
+	}
+
+	@media screen and (min-width: 1024px) {
+		height: 730px;
+		background-position: center 15%;
+	}
+
+	@media screen and (min-width: 1300px) {
+		height: 850px;
+	}
+}
+
+
+#i9 {
+	background-image: url('https://googledrive.com/host/0BwccMmePX0KITXVCRFg0cjl5Rzg');
+	background-position: center 53%;
+}
+
