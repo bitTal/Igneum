@@ -45,6 +45,22 @@
 		end %>
 	</div>
 
+	<div class="delete-user back wrap">
+		<h1 class="back-title">- Delete user -</h1>
+
+		<%= form_tag('/backoffice/add_user', method: 'delete') do %>
+			<%= label_tag :User %>
+			<%= text_field_tag :user %>
+			<%= submit_tag "Delete" %>
+		<% end %>
+
+		<%= if @delete
+				content_tag :p, "- User '#{@delete}' deleted. -"
+			elsif @error
+				content_tag :p, "- Error, user not deleted. -"
+		end %>
+	</div>
+
 	</body>
 
 </html>

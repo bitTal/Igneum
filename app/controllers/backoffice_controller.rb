@@ -125,6 +125,7 @@ class BackofficeController < ApplicationController
         @error = flash[:error_user]
         @add = flash[:add]
         @update = flash[:update]
+        @delete = flash[:delete]
 	end
 
 	def create_user
@@ -144,6 +145,16 @@ class BackofficeController < ApplicationController
 		if params[:user] && params[:type]
 			if User.where(user: params[:user])[0].update(user_type: params[:type])
 				flash[:update] = params[:user]
+			else flash[:error_user] = true
+			end
+		end
+		redirect_to action: 'add_user'
+	end
+
+	def delete_user
+		if params[:user]
+			if User.where(user: params[:user]).destroy_all()
+				flash[:delete] = params[:user]
 			else flash[:error_user] = true
 			end
 		end
