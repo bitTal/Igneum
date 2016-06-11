@@ -20,10 +20,28 @@
 			<%= submit_tag "Add" %>
 		<% end %>
 
-		<%= if @user
-				content_tag :p, "- User '#{@user}' added. -"
+		<%= if @add
+				content_tag :p, "- User '#{@add}' added. -"
 			elsif @error
 				content_tag :p, "- Error, user not added. -"
+		end %>
+	</div>
+
+	<div class="update-user back wrap">
+		<h1 class="back-title">- Update user -</h1>
+
+		<%= form_tag('/backoffice/add_user', method: 'put') do %>
+			<%= label_tag :User %>
+			<%= text_field_tag :user %></br>
+			<%= label_tag :Type %>
+			<%= text_field_tag :type %>
+			<%= submit_tag "Update" %>
+		<% end %>
+
+		<%= if @update
+				content_tag :p, "- User '#{@update}' updated. -"
+			elsif @error
+				content_tag :p, "- Error, user not updated. -"
 		end %>
 	</div>
 

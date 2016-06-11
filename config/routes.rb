@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   get 'backoffice/add_user', to: 'backoffice#add_user'
   post 'backoffice/add_user', to: 'backoffice#create_user'
 
+  put 'backoffice/add_user', to: 'backoffice#update_user'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
