@@ -49,3 +49,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'rolify', :git => 'git://github.com/EppO/rolify.git'
+
+
