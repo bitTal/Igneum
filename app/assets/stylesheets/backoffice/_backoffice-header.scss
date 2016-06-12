@@ -20,10 +20,17 @@
 	}
 
 	.menu-item {
-		width: 45px;
-		height: 45px;
+		width: 30px;
+		height: 30px;
+		font-size: 12px;
 		padding: 5px 5px;
 		border-radius: 50%;
+
+		@media screen and (min-width: 768px) {
+			width: 45px;
+			height: 45px;
+			font-size: 16px;
+		}
 	}
 
 	.edit {
@@ -51,10 +58,18 @@
 		}
 
 		.menu-item {
-			margin-left: 50px;
+			margin-left: 15px;
 			text-align: center;
 			background-color: white;
 			border: 1px solid lightgrey;
+
+			@media screen and (min-width: 500px) {
+				margin-left: 50px;
+			}
+
+			@media screen and (min-width: 1024px) {
+				margin-left: 70px;
+			}
 
 			& a {
 				color:#A0CC52;
@@ -72,14 +87,20 @@
 	}
 
 	.close {
-			margin-left: 50px;
-			padding: 5px 5px;
-			background-color: #443D3D;
-			font-size: 30px;
-			font-family: arial;
-			border: 2px solid #443D3D;
+		display: flex;
+		justify-content: flex-end;
+		padding: 0;
+		padding-top: 2px;
 
 		& a {
+			width: 25px;
+			height: 25px;
+			background-color: #443D3D;
+			font-size: 15px;
+			font-family: arial;
+			border: 2px solid #443D3D;
+			border-radius: 50%;
+			padding-bottom: 2px;
 			color: #A0CC52;
 		}
 

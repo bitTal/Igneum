@@ -2,13 +2,19 @@ class WelcomeController < ApplicationController
 	require 'open-uri'
 	require('yaml')
 	@@conf = YAML.load_file("#{Dir.pwd}/config/confidencial.yml")
+	@@monthsName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 
+			'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 
 	def index
+		@currentDate = {
+			month: Date.today.month,
+			year: Date.today.year
+		}
+		@auxMonths = @@monthsName
 	end
 
 	def month
-		@auxMonths = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 
-			'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+		@auxMonths = @@monthsName
 		@months = @auxMonths.map.with_index(1).to_a
 		@years = ['2016', '2015'];
 		@month = normalize_string_int(params['month1'] || Date.today.month)
@@ -22,8 +28,7 @@ class WelcomeController < ApplicationController
 	end
 	
 	def compare
-		@auxMonths = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 
-			'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+		@auxMonths = @@monthsName
 		@months = @auxMonths.map.with_index(1).to_a
 		@years = ['2016', '2015'];
 		@month1 = normalize_string_int(params['month1'] || Date.today.month)
