@@ -54,7 +54,10 @@
       };
 
       if(path === '/') {
-        this.setRootMaps(canariasBounds);
+        this.setRootMaps(canariasBounds, {
+          tileLayer: 'http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg',
+          subdomains: '1234'
+        });
       }
       else if (path === '/month') {
         this.setMonthMaps(canariasBounds);
@@ -65,8 +68,11 @@
     },
 
     setRootMaps(canariasBounds) {
-      const introPeninsula = new Intro_Map({el: 'map'});
-      const introCanarias = new Intro_Map(Object.assign({el: 'mini-map'}, canariasBounds));
+      const paramsMap = arguments.length > 1 ? Object.assign({el: 'map'}, arguments[1]) : {el: 'map'};
+      const paramsMiniMap = arguments.length > 1 ? Object.assign({el: 'mini-map'}, canariasBounds, arguments[1]) : Object.assign({el: 'mini-map'}, canariasBounds);
+
+      const introPeninsula = new Intro_Map(paramsMap);
+      const introCanarias = new Intro_Map(paramsMiniMap);
     },
 
     setMonthMaps(canariasBounds) {

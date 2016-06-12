@@ -12,6 +12,7 @@
         setCenter: [39.555, -9.72],
         defaultZoom: 6,
         tileLayer: 'https://stamen-tiles-d.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png',
+        subdomains: 'abcd',
         attributions: ``,
         setZoom: [6, 13],
         southWest: [35.0378936, -15.49],
@@ -77,7 +78,7 @@
     setTileLayer() {
       return L.tileLayer(this.options.tileLayer || this.defaults().tileLayer, {
         attribution: this.options.attributions || this.defaults().attributions,
-        subdomains: 'abcd',
+        subdomains: this.options.subdomains || this.defaults().subdomains,
         maxZoom: this.options.setZoom ? this.options.setZoom[1] : this.defaults().setZoom[1],
         minZoom: this.options.setZoom ? this.options.setZoom[0] : this.defaults().setZoom[0],
         maxBounds: this.setBounds(),
