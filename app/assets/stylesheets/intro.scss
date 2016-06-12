@@ -3,6 +3,14 @@
 	.header {
 		position: absolute;
 		z-index: 1;
+
+		.forest-category {
+			color: antiquewhite;
+		}
+
+		.logo {
+			color: grey;
+		}
 	}
 
 	.main-title {
@@ -26,7 +34,7 @@
 			right: 5px;
 			font-family: inherit;
 			font-size: 14px;
-			color: yellowgreen;
+			color: antiquewhite;
 			z-index: 2;
 		}
 	}
