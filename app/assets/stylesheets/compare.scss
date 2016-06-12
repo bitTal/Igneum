@@ -1,0 +1,42 @@
+
+.form {
+	&.-compare {
+		form {
+			display: flex;
+			justify-content: space-between;
+
+			& > div {
+				display: flex;
+				flex-flow: column;
+
+				@media screen and (min-width: 800px) {
+					flex-flow: row nowrap;
+				}
+			}
+
+			.btn-compare {
+				justify-content: flex-end;
+				height: auto;
+			}
+		}
+	}
+}
+
+
+.compare-fires {
+	.wrap {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		color: #443D3D;
+		text-align: center;	
+
+		hr {
+			width: 100%;
+			border-color: #A0CC52;
+		}	
+	}
+}
+

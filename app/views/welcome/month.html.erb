@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+</head>
+<body>
+	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<%= render "shared/header" %>
+
+	<div class="form">
+		<div class="wrap">
+			<%= form_tag("/month", method: "get") do %>
+				<%= label_tag :Año %>
+				<%= select_tag "year1", options_for_select(@years, :selected=>@year) %>
+				<%= label_tag :Mes %>
+				<%= select_tag "month1", options_for_select(@months, :selected=>@month.to_i.to_s) %>
+				<%= submit_tag "Visualizar" %>
+			<% end %>
+		</div>
+	</div>
+	
+	<div class="maps-container">
+		<div id="map"></div>
+		<div id="mini-map" class="canarias"></div>
+	</div>
+
+	<div class="month-fires">
+		<div class="wrap">
+			<h1><%= @auxMonths[@month.to_i-1] %> de <%= @year %></h1>
+			<h2><%= @fires.length %> incendios en toda España</h2>
+			<hr/>
+
+			<% if @max_fires_prov != 0 %>
+				<div class="month-content">
+					<p class="diff-provinces">Se han producido en <%= @diff_provs %> provincias diferentes.</p>
+					<p class="text-max-provinces">Las provincias con mayor número son: </p>
+					<ul class="max-provinces">
+						<%	@max_provs.each do |max_prov| %>
+							<li><%= max_prov['nom_prov'] %></li>
+						<% end	%>
+					</ul>
+					<p class="text-max-provinces">con un total de <%= @max_fires_prov %> incendios cada una.</p>
+				</div>
+			<% else %>
+				<p class="diff-provinces">Un mes con suerte</p>
+			<% end %>
+		</div>
+	</div>
+
+	<%= render "shared/footer" %>
+	
+</body>
+</html>

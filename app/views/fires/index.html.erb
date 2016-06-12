@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Fires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lat</th>
+      <th>Lng</th>
+      <th>City</th>
+      <th>Ca</th>
+      <th>Date ini</th>
+      <th>Time ini</th>
+      <th>Area</th>
+      <th>Teams</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fires.each do |fire| %>
+      <tr>
+        <td><%= fire.lat %></td>
+        <td><%= fire.lng %></td>
+        <td><%= fire.city %></td>
+        <td><%= fire.ca %></td>
+        <td><%= fire.date_ini %></td>
+        <td><%= fire.time_ini %></td>
+        <td><%= fire.area %></td>
+        <td><%= fire.teams %></td>
+        <td><%= link_to 'Show', fire %></td>
+        <td><%= link_to 'Edit', edit_fire_path(fire) %></td>
+        <td><%= link_to 'Destroy', fire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fire', new_fire_path %>

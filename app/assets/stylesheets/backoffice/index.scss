@@ -1,0 +1,48 @@
+
+.wrap {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+
+	.login {
+		width: fit-content;
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		margin-top: 100px;
+		padding: 50px 130px;
+		border: 2px solid #A0CC52;
+
+		h1 {
+			margin-top: 0;
+			margin-bottom: 30px;
+			font-family: serif;
+			color: #A0CC52;
+
+		}
+
+		label {
+			font-size: 19px;
+			padding-bottom: 20px;
+		}
+
+		a {
+			text-decoration: none;
+			font-size: 19px;
+			color: white;
+			padding: 5px 20px;
+			background-color: grey;
+			border: 2px solid #666;
+			border-radius: 15px;
+		}
+
+		a:hover {
+			background-color: #A0CC52;
+			border: 2px solid #A0CC52;
+			
+		}
+
+	}
+
+	
+}

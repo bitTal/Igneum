@@ -1,0 +1,77 @@
+
+#map {
+	width: 100%;
+	height: 490px;
+}
+
+.canarias {
+	position: relative;
+	width: 100%;
+	height: 180px;
+	border: 0;
+
+	@media screen and(min-width: 800px) {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 280px;
+		height: 110px;
+		border-radius: 3px;
+		border: 1px solid grey;
+	}
+
+	@media screen and(min-width: 1000px) {
+		width: 320px;
+		height: 140px;
+	}
+}
+
+.compare-container {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+
+	@media screen and(min-width: 800px) {
+		flex-flow: row nowrap;
+		
+	}
+}
+
+.maps-container {
+	position: relative;
+	display: flex;
+	flex-flow: column;
+
+	&.-half {
+		width: 100%;
+		height: 100%;
+
+		@media screen and(min-width: 800px) {
+			width: 49%;
+		}
+	}
+}
+
+.compare-map {
+	width: 100%;
+	height: 550px;
+	border-bottom: 2px solid grey;
+}
+
+.compare-canarias {
+	width: 100%;
+	height: 180px;
+}
+
+.leaflet-control-scale {
+	display: none !important;
+}
+
+.leaflet-control-attribution {
+	display: none;
+}
+
+.cartodb-logo {
+	display: none !important;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+</head>
+<body>
+	<script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	
+	<div class="add-fire back wrap">
+		<h1 class="back-title">- Add fire -</h1>
+
+		<%= form_tag :action=>:create_fire do %>
+			<%= label_tag :Provincias %>
+			<%= select_tag "provincias", options_from_collection_for_select(@provs, "id_provincia", "provincia", @prov), :onChange => 'set_towns()'%><br/>
+			<%= label_tag :Municipios %>
+			<%= select_tag "municipios", options_from_collection_for_select(@municipios, "nombre", "nombre") %>
+			<%= submit_tag "Add" %>
+		<% end %>
+
+		<%= if @town
+			content_tag :p, "- Fire in '#{@town}, #{@province}' added. -"
+		end %>
+	</div>
+
+	<script type="text/javascript">
+		function set_towns() {
+			window.location.href = window.location.hash + '?provincia=' + document.getElementById('provincias').value;
+		}
+	</script>
+	</body>
+
+</html>
+
+
+
+      

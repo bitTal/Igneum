@@ -1,7 +1,25 @@
-<header>
-	<div id="menuButton"></div>
-	<div id="contact">
-		<span>Contacto</span>
-		<span>Usuario</span>
+<header class="header">
+	<div class="wrap">
+		<div id="menu-button" class="menu-button">
+			<div class="logo-container">
+				<a href="/" class="logo" data-no-turbolink="true"><img src="">Igneum</a>
+				<a onclick="toggleMenu()" class="logo"><img src="">></a>
+			</div>
+
+			<%= link_to 'Mes', '/month', 'data-no-turbolink'=>true %>
+			<%= link_to 'Compara', '/compare', 'data-no-turbolink'=>true %>
+		</div>
+		<div class="user">
+			<h1 class="forest-category">5932</h1>
+		</div>
 	</div>
 </header>
+
+<script type="text/javascript">
+	function toggleMenu() {
+		const menuButton = document.getElementById("menu-button");
+		const open = menuButton.getAttribute("class").indexOf('is-open') !== -1;
+		open ? menuButton.setAttribute("class", "menu-button") :
+			menuButton.setAttribute("class", "menu-button is-open");
+	}
+</script>

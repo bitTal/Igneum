@@ -1,0 +1,41 @@
+
+input#type {
+	width: 50px;
+}
+
+.positive-user {
+	display: flex;
+	flex-flow: column;
+
+	@media screen and (min-width: 768px) {
+		flex-flow: row;
+		justify-content: space-between;
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
+
+.negative-user {
+	@media screen and (min-width: 768px) {
+		display: flex;
+		justify-content: center;
+	}
+
+	.back-title {
+		color: #B90707;
+	}
+
+	.delete-user.back.wrap {
+
+		@media screen and (min-width: 768px) {
+			& form {
+				flex-flow: row;
+			}
+		}
+		
+		& input:hover {
+			background-color: #B90707;
+			border-color: #B90707;
+		}
+	}
+}

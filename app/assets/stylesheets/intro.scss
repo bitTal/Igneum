@@ -1,0 +1,45 @@
+
+.intro-page {
+	.header {
+		position: absolute;
+		z-index: 1;
+
+		.forest-category {
+			color: antiquewhite;
+		}
+
+		.logo {
+			color: grey;
+
+			&:hover {
+				color: #A0CC52;
+			}
+		}
+	}
+
+	.main-title {
+		margin: 0;
+		padding-top: 90px;
+		text-align: center;
+		color: antiquewhite;
+		font-style: italic;
+	}
+
+	#map {
+		.leaflet-left .leaflet-control {
+			margin-top: 70px;
+			margin-left: 20px;
+		}
+
+		.map-month {
+			position: absolute;
+			margin: 0;
+			bottom: 5px;
+			right: 15px;
+			font-family: inherit;
+			font-size: 14px;
+			color: antiquewhite;
+			z-index: 2;
+		}
+	}
+}

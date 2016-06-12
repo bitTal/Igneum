@@ -1,0 +1,42 @@
+
+.month-fires {
+	.wrap {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		padding-top: 30px;
+		padding-bottom: 30px;
+		color: #443D3D;
+
+		hr {
+			width: 100%;
+			border-color: #A0CC52;
+		}
+
+		.month-content {
+			box-sizing: border-box;
+			width: 100%;
+			padding: 0 100px;
+			font-size: 18px;
+			background-color: honeydew;
+
+		}
+
+		.diff-provinces {
+			font-size: 19px;
+			font-style: italic;
+			margin-bottom: 30px;
+		}
+
+		.max-provinces {
+			& li {
+				font-weight: 700;
+				margin-bottom: 8px;
+				margin-left: 20px;
+				padding-left: 15px;
+			}
+		}
+
+	}
+}
+

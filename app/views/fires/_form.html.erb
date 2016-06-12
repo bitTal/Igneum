@@ -1,0 +1,49 @@
+<%= form_for(@fire) do |f| %>
+  <% if @fire.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fire.errors.count, "error") %> prohibited this fire from being saved:</h2>
+
+      <ul>
+      <% @fire.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lat %><br>
+    <%= f.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= f.label :lng %><br>
+    <%= f.text_field :lng %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :ca %><br>
+    <%= f.text_field :ca %>
+  </div>
+  <div class="field">
+    <%= f.label :date_ini %><br>
+    <%= f.date_select :date_ini %>
+  </div>
+  <div class="field">
+    <%= f.label :time_ini %><br>
+    <%= f.time_select :time_ini %>
+  </div>
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= f.text_field :area %>
+  </div>
+  <div class="field">
+    <%= f.label :teams %><br>
+    <%= f.text_field :teams %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
