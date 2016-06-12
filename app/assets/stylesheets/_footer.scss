@@ -1,0 +1,62 @@
+
+.footer {
+	.wrap {
+		display: flex;
+		flex-flow: column;
+		padding-top: 15px;
+		padding-bottom: 5px;
+		font-family: sans-serif;
+		background-color: #A0CC52;
+
+		&, a {
+			color: white;
+		}
+
+		a:hover {
+			color: #443D3D;
+		}
+	}
+
+	.lists-columns {
+		display: flex;
+		flex-flow: column;
+		justify-content:space-between;
+		padding: 0 20px;
+
+		@media screen and (min-width: 500px) {
+			flex-flow: row;
+		}
+
+		@media screen and (min-width: 768px) {
+			padding: 0 50px;
+		}
+	}
+
+	label {
+		font-weight: 700;
+		color: #443D3D;
+	}
+
+	table {
+		margin: 10px 5px 10px 20px;
+
+		@media screen and (min-width: 768px) {
+			margin-left: 40px;
+		}
+	}
+
+	td:first-child {
+		padding-right: 30px;
+	}
+
+	.attributions {
+		margin-right: 15px;
+	}
+
+	.rights {
+		text-align: center;
+		color: #443D3D;
+		font-size: 12px;
+	}
+
+}

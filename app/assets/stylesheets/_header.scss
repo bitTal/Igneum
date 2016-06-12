@@ -18,6 +18,8 @@ a {
 
 .menu-button {
 	display: flex;
+	align-items: center;
+	font-family: sans-serif;
 
 	.logo {
 		position: relative;
@@ -25,6 +27,8 @@ a {
 		margin-right: 10px;
 		cursor: pointer;
 		opacity: 1;
+		color: #443D3D;
+		font-size: 24px;
 	}
 
 	.logo:last-child {
@@ -48,6 +52,10 @@ a {
 
 	& a:hover {
 		color: grey;
+	}
+
+	& > a {
+		margin-top: 4px;
 	}
 }
 
