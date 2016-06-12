@@ -15,7 +15,7 @@ class Intro_Map extends Map{
 
     return Object.assign( Map.prototype.defaults(), {
       markerCartocss: `#frs {
-        marker-fill: red;
+        marker-fill: #D41F09;
       }`,
       markerSql: `SELECT * from frs where EXTRACT(year FROM date) = ${year} 
         AND EXTRACT(month FROM date) = ${month}`
@@ -36,6 +36,7 @@ class Intro_Map extends Map{
     })
     .addTo(map)
     .on('done', function(layer) {
+      layer.setZIndex(2);
       layer.setInteraction(true);
       layer.on('featureClick', function(e, latlng, pos, data) {
         self.popUp(latlng, data, map);
