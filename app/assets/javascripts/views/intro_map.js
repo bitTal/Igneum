@@ -7,13 +7,13 @@
  * @param  {Object} App Global object
  */
 
-class Intro_Map extends Map{
+class Intro_Map extends BaseMap {
 
   defaults() {
     const month = this.options.month || this.getYearMonth().month + 1;
     const year = this.options.year || this.getYearMonth().year;
 
-    return Object.assign( Map.prototype.defaults(), {
+    return Object.assign( BaseMap.prototype.defaults(), {
       markerCartocss: `#frs {
         marker-fill: #D41F09;
       }`,

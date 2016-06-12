@@ -5,7 +5,7 @@
  * @param  {Object} App Global object
  */
 
-  class Map extends Backbone.View {
+  class BaseMap extends Backbone.View {
 
     defaults() {
       return {

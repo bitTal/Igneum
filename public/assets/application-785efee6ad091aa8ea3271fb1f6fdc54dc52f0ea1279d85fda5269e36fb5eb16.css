@@ -1,0 +1,706 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+/* line 3, /home/eos/Projects/Igneum/app/assets/stylesheets/intro.scss */
+.intro-page .header {
+  position: absolute;
+  z-index: 1;
+}
+/* line 7, /home/eos/Projects/Igneum/app/assets/stylesheets/intro.scss */
+.intro-page .header .forest-category {
+  color: antiquewhite;
+}
+/* line 11, /home/eos/Projects/Igneum/app/assets/stylesheets/intro.scss */
+.intro-page .header .logo {
+  color: grey;
+}
+/* line 14, /home/eos/Projects/Igneum/app/assets/stylesheets/intro.scss */
+.intro-page .header .logo:hover {
+  color: #A0CC52;
+}
+/* line 20, /home/eos/Projects/Igneum/app/assets/stylesheets/intro.scss */
+.intro-page .main-title {
+  margin: 0;
+  padding-top: 90px;
+  text-align: center;
+  color: antiquewhite;
+  font-style: italic;
+}
+/* line 29, /home/eos/Projects/Igneum/app/assets/stylesheets/intro.scss */
+.intro-page #map .leaflet-left .leaflet-control {
+  margin-top: 70px;
+  margin-left: 20px;
+}
+/* line 34, /home/eos/Projects/Igneum/app/assets/stylesheets/intro.scss */
+.intro-page #map .map-month {
+  position: absolute;
+  margin: 0;
+  bottom: 5px;
+  right: 15px;
+  font-family: inherit;
+  font-size: 14px;
+  color: antiquewhite;
+  z-index: 2;
+}
+
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/layouts.scss */
+.wrap {
+  padding: 0px 20px;
+}
+
+/* line 1, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+header {
+  width: 100%;
+}
+/* line 4, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+header .wrap {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  felx-flow: row nowrap;
+  justify-content: space-between;
+}
+
+/* line 15, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 19, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.menu-button {
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+}
+/* line 24, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.menu-button .logo {
+  position: relative;
+  top: 0;
+  margin-right: 10px;
+  cursor: pointer;
+  opacity: 1;
+  color: #443D3D;
+  font-size: 24px;
+}
+/* line 34, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.menu-button .logo:last-child {
+  top: -2px;
+  margin-right: 35px;
+  font-family: georgia;
+  font-size: 15px;
+  font-weight: 700;
+}
+/* line 42, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.menu-button a {
+  position: absolute;
+  top: -50px;
+  margin-right: 40px;
+  color: #A0CC52;
+  font-size: 20px;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+/* line 53, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.menu-button a:hover {
+  color: grey;
+}
+/* line 57, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.menu-button > a {
+  margin-top: 4px;
+}
+
+/* line 62, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.is-open a {
+  position: relative;
+  top: 0;
+  opacity: 1;
+}
+
+/* line 68, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.user {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  text-transform: uppercase;
+}
+/* line 75, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.user a {
+  cursor: pointer;
+  margin-right: 2em;
+}
+/* line 80, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.user a:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #A0CC52;
+  margin-right: 0;
+  color: white;
+}
+/* line 92, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.user a:last-child:hover {
+  background-color: grey;
+}
+
+/* line 98, /home/eos/Projects/Igneum/app/assets/stylesheets/_header.scss */
+.forest-category {
+  padding: 0;
+  margin: 0;
+  color: #443D3D;
+}
+
+/* line 3, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+.footer .wrap {
+  display: flex;
+  flex-flow: column;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  font-family: sans-serif;
+  background-color: #A0CC52;
+}
+/* line 11, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+.footer .wrap, .footer .wrap a {
+  color: white;
+}
+/* line 15, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+.footer .wrap a:hover {
+  color: #443D3D;
+}
+/* line 20, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+.footer .lists-columns {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+@media screen and (min-width: 500px) {
+  /* line 20, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+  .footer .lists-columns {
+    flex-flow: row;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 20, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+  .footer .lists-columns {
+    padding: 0 50px;
+  }
+}
+/* line 35, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+.footer label {
+  font-weight: 700;
+  color: #443D3D;
+}
+/* line 40, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+.footer table {
+  margin: 10px 5px 10px 20px;
+}
+@media screen and (min-width: 768px) {
+  /* line 40, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+  .footer table {
+    margin-left: 40px;
+  }
+}
+/* line 48, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+.footer td:first-child {
+  padding-right: 30px;
+}
+/* line 52, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+.footer .attributions {
+  margin-right: 15px;
+}
+/* line 56, /home/eos/Projects/Igneum/app/assets/stylesheets/_footer.scss */
+.footer .rights {
+  text-align: center;
+  color: #443D3D;
+  font-size: 12px;
+}
+
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+#map {
+  width: 100%;
+  height: 490px;
+}
+
+/* line 7, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+.canarias {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border: 0;
+}
+@media screen and (min-width: 800px) {
+  /* line 7, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+  .canarias {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 280px;
+    height: 110px;
+    border-radius: 3px;
+    border: 1px solid grey;
+  }
+}
+@media screen and (min-width: 1000px) {
+  /* line 7, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+  .canarias {
+    width: 320px;
+    height: 140px;
+  }
+}
+
+/* line 29, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+.compare-container {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+@media screen and (min-width: 800px) {
+  /* line 29, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+  .compare-container {
+    flex-flow: row nowrap;
+  }
+}
+
+/* line 41, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+.maps-container {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+}
+/* line 46, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+.maps-container.-half {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (min-width: 800px) {
+  /* line 46, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+  .maps-container.-half {
+    width: 49%;
+  }
+}
+
+/* line 56, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+.compare-map {
+  width: 100%;
+  height: 550px;
+  border-bottom: 2px solid grey;
+}
+
+/* line 62, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+.compare-canarias {
+  width: 100%;
+  height: 180px;
+}
+
+/* line 67, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+.leaflet-control-scale {
+  display: none !important;
+}
+
+/* line 71, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+.leaflet-control-attribution {
+  display: none;
+}
+
+/* line 75, /home/eos/Projects/Igneum/app/assets/stylesheets/components/_map.scss */
+.cartodb-logo {
+  display: none !important;
+}
+
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+.form {
+  margin-bottom: 10px;
+}
+/* line 5, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+.form label {
+  margin-right: 2px;
+  font-family: Arial;
+  font-size: 15px;
+}
+/* line 11, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+.form select {
+  margin-right: 7px;
+}
+
+/* line 17, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+select, input {
+  padding: 8px 15px;
+  border: 0;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+@media screen and (min-width: 800px) {
+  /* line 17, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+  select, input {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  /* line 17, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+  select, input {
+    font-size: 17px;
+  }
+}
+
+/* line 34, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+select {
+  background-color: grey;
+  border: 1px solid grey;
+}
+
+/* line 39, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+select:hover {
+  color: #A0CC52;
+  background-color: white;
+  border: 1px solid lightgrey;
+}
+
+/* line 45, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+select option {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 30px;
+  font-size: 14px;
+  color: white;
+  background-color: grey;
+}
+@media screen and (min-width: 800px) {
+  /* line 45, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+  select option {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  /* line 45, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+  select option {
+    font-size: 17px;
+  }
+}
+
+/* line 62, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+select option:hover {
+  cursor: pointer !important;
+  background-color: #A0CC52;
+}
+
+/* line 67, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+input {
+  background-color: grey;
+  border: 2px solid #666;
+}
+
+/* line 72, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+input:hover {
+  background-color: #A0CC52;
+  border: 2px solid #A0CC52;
+}
+
+/* line 3, /home/eos/Projects/Igneum/app/assets/stylesheets/month.scss */
+.month-fires .wrap {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #443D3D;
+}
+/* line 11, /home/eos/Projects/Igneum/app/assets/stylesheets/month.scss */
+.month-fires .wrap hr {
+  width: 100%;
+  border-color: #A0CC52;
+}
+/* line 16, /home/eos/Projects/Igneum/app/assets/stylesheets/month.scss */
+.month-fires .wrap .month-content {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 100px;
+  font-size: 18px;
+  background-color: honeydew;
+}
+/* line 25, /home/eos/Projects/Igneum/app/assets/stylesheets/month.scss */
+.month-fires .wrap .diff-provinces {
+  font-size: 19px;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+/* line 32, /home/eos/Projects/Igneum/app/assets/stylesheets/month.scss */
+.month-fires .wrap .max-provinces li {
+  font-weight: 700;
+  margin-bottom: 8px;
+  margin-left: 20px;
+  padding-left: 15px;
+}
+
+/* line 4, /home/eos/Projects/Igneum/app/assets/stylesheets/compare.scss */
+.form.-compare form {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 8, /home/eos/Projects/Igneum/app/assets/stylesheets/compare.scss */
+.form.-compare form > div {
+  display: flex;
+  flex-flow: column;
+}
+@media screen and (min-width: 800px) {
+  /* line 8, /home/eos/Projects/Igneum/app/assets/stylesheets/compare.scss */
+  .form.-compare form > div {
+    flex-flow: row nowrap;
+  }
+}
+/* line 17, /home/eos/Projects/Igneum/app/assets/stylesheets/compare.scss */
+.form.-compare form .btn-compare {
+  justify-content: flex-end;
+  height: auto;
+}
+
+/* line 27, /home/eos/Projects/Igneum/app/assets/stylesheets/compare.scss */
+.compare-fires .wrap {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #443D3D;
+  text-align: center;
+}
+/* line 36, /home/eos/Projects/Igneum/app/assets/stylesheets/compare.scss */
+.compare-fires .wrap hr {
+  width: 100%;
+  border-color: #A0CC52;
+}
+
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/popup.scss */
+.leaflet-popup-content-wrapper {
+  padding: 17px 40px 16px 30px !important;
+  border-radius: 2px !important;
+}
+
+/* line 7, /home/eos/Projects/Igneum/app/assets/stylesheets/popup.scss */
+.leaflet-popup-content {
+  margin: 0 !important;
+  color: #443D3D;
+}
+/* line 11, /home/eos/Projects/Igneum/app/assets/stylesheets/popup.scss */
+.leaflet-popup-content .text {
+  margin: 0;
+}
+/* line 15, /home/eos/Projects/Igneum/app/assets/stylesheets/popup.scss */
+.leaflet-popup-content .title {
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+/* line 20, /home/eos/Projects/Igneum/app/assets/stylesheets/popup.scss */
+.leaflet-popup-content .number {
+  font-family: arial;
+  font-size: 19px;
+  font-weight: 500;
+}
+/* line 26, /home/eos/Projects/Igneum/app/assets/stylesheets/popup.scss */
+.leaflet-popup-content .claim {
+  font-family: arial;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 500px) {
+  /* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  .image-container {
+    height: 250px;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  .image-container {
+    height: 400px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  .image-container {
+    height: 550px;
+  }
+}
+
+/* line 22, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+.images-container {
+  display: flex;
+  width: 100%;
+  height: 150px;
+}
+@media screen and (min-width: 500px) {
+  /* line 22, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  .images-container {
+    height: 350px;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 22, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  .images-container {
+    height: 550px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* line 22, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  .images-container {
+    height: 700px;
+  }
+}
+/* line 39, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+.images-container div {
+  width: 50%;
+  height: 100%;
+}
+/* line 43, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+.images-container div .viel {
+  width: 100%;
+}
+
+/* line 49, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+.viel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: .5;
+}
+
+/* line 59, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+#i1 {
+  background-image: url("https://googledrive.com/host/0BwccMmePX0KIbkQxanlLdHhCUkk");
+  background-position: center 20%;
+}
+
+/* line 64, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+#i2 {
+  height: 90px;
+  background-image: url("https://googledrive.com/host/0BwccMmePX0KIMkFjUXoxMDQyNVk");
+  background-position: 55% 36%;
+  background-size: 100%;
+}
+@media screen and (min-width: 500px) {
+  /* line 64, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  #i2 {
+    height: 200px;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* line 64, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  #i2 {
+    height: 300px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* line 64, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  #i2 {
+    height: 400px;
+  }
+}
+
+/* line 83, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+#i3 {
+  background-image: url("https://googledrive.com/host/0BwccMmePX0KITnNkSzZEajBHU0U");
+  background-position: center center;
+  background-size: cover;
+}
+
+/* line 89, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+#i4 {
+  background-image: url("https://googledrive.com/host/0BwccMmePX0KIQUlnYzU3NzcweWM");
+  background-position: right 20%;
+  background-size: cover;
+}
+
+/* line 95, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+#i5 {
+  background-image: url("https://googledrive.com/host/0BwccMmePX0KIOElNcUlDVDAzbVU");
+  background-position: center center;
+}
+
+/* line 100, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+#i6 {
+  background-image: url("https://googledrive.com/host/0BwccMmePX0KIa1FSWUFfZTQ5Nmc");
+  background-position: center 20%;
+}
+
+/* line 105, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+#i7 {
+  background-image: url("https://googledrive.com/host/0BwccMmePX0KIMk1penlwN0F6M3c");
+  background-position: center 20%;
+}
+
+/* line 110, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+#i8 {
+  height: 300px;
+  background-image: url("https://googledrive.com/host/0BwccMmePX0KIWlBlRjBQazdSczA");
+  background-position: center 45%;
+}
+@media screen and (min-width: 500px) {
+  /* line 110, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  #i8 {
+    height: 370px;
+    background-position: center 25%;
+  }
+}
+@media screen and (min-width: 700px) {
+  /* line 110, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  #i8 {
+    height: 550px;
+    background-position: center 10%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* line 110, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  #i8 {
+    height: 730px;
+    background-position: center 15%;
+  }
+}
+@media screen and (min-width: 1300px) {
+  /* line 110, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+  #i8 {
+    height: 850px;
+  }
+}
+
+/* line 136, /home/eos/Projects/Igneum/app/assets/stylesheets/intro-images.scss */
+#i9 {
+  background-image: url("https://googledrive.com/host/0BwccMmePX0KITXVCRFg0cjl5Rzg");
+  background-position: center 53%;
+}
+
+/* line 13, /home/eos/Projects/Igneum/app/assets/stylesheets/welcome.scss */
+body {
+  margin: 0 0 0 0;
+}

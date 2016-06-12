@@ -1,0 +1,343 @@
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+.form {
+  margin-bottom: 10px;
+}
+/* line 5, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+.form label {
+  margin-right: 2px;
+  font-family: Arial;
+  font-size: 15px;
+}
+/* line 11, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+.form select {
+  margin-right: 7px;
+}
+
+/* line 17, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+select, input {
+  padding: 8px 15px;
+  border: 0;
+  border-radius: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+@media screen and (min-width: 800px) {
+  /* line 17, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+  select, input {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  /* line 17, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+  select, input {
+    font-size: 17px;
+  }
+}
+
+/* line 34, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+select {
+  background-color: grey;
+  border: 1px solid grey;
+}
+
+/* line 39, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+select:hover {
+  color: #A0CC52;
+  background-color: white;
+  border: 1px solid lightgrey;
+}
+
+/* line 45, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+select option {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 30px;
+  font-size: 14px;
+  color: white;
+  background-color: grey;
+}
+@media screen and (min-width: 800px) {
+  /* line 45, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+  select option {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  /* line 45, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+  select option {
+    font-size: 17px;
+  }
+}
+
+/* line 62, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+select option:hover {
+  cursor: pointer !important;
+  background-color: #A0CC52;
+}
+
+/* line 67, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+input {
+  background-color: grey;
+  border: 2px solid #666;
+}
+
+/* line 72, /home/eos/Projects/Igneum/app/assets/stylesheets/forms.scss */
+input:hover {
+  background-color: #A0CC52;
+  border: 2px solid #A0CC52;
+}
+
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/layouts.scss */
+.wrap {
+  padding: 0px 20px;
+}
+
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/index.scss */
+.wrap {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+/* line 7, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/index.scss */
+.wrap .login {
+  width: fit-content;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 100px;
+  padding: 50px 130px;
+  border: 2px solid #A0CC52;
+}
+/* line 16, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/index.scss */
+.wrap .login h1 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-family: serif;
+  color: #A0CC52;
+}
+/* line 24, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/index.scss */
+.wrap .login label {
+  font-size: 19px;
+  padding-bottom: 20px;
+}
+/* line 29, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/index.scss */
+.wrap .login a {
+  text-decoration: none;
+  font-size: 19px;
+  color: white;
+  padding: 5px 20px;
+  background-color: grey;
+  border: 2px solid #666;
+  border-radius: 15px;
+}
+/* line 39, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/index.scss */
+.wrap .login a:hover {
+  background-color: #A0CC52;
+  border: 2px solid #A0CC52;
+}
+
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap {
+  height: fit-contect;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 7, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .backoffice-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+/* line 13, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+}
+/* line 22, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .menu-item {
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+  padding: 5px 5px;
+  border-radius: 50%;
+}
+@media screen and (min-width: 768px) {
+  /* line 22, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+  .wrap .menu-item {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+}
+/* line 36, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .edit {
+  padding: 5px 5px;
+  background-color: #A0CC52;
+  border: 2px solid #A0CC52;
+}
+/* line 41, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .edit a {
+  color: white;
+}
+/* line 46, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .edit:hover {
+  background-color: #666;
+  border: 2px solid #666;
+}
+/* line 52, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .tools {
+  display: flex;
+  flex-flow: row nowrap;
+}
+/* line 56, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .tools .menu-item:first-child {
+  margin-left: 0;
+}
+/* line 60, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .tools .menu-item {
+  margin-left: 15px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid lightgrey;
+}
+@media screen and (min-width: 500px) {
+  /* line 60, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+  .wrap .tools .menu-item {
+    margin-left: 50px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  /* line 60, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+  .wrap .tools .menu-item {
+    margin-left: 70px;
+  }
+}
+/* line 74, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .tools .menu-item a {
+  color: #A0CC52;
+}
+/* line 79, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .tools .menu-item:hover {
+  background-color: grey;
+  border: 2px solid grey;
+}
+/* line 83, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .tools .menu-item:hover a {
+  color: white;
+}
+/* line 89, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .close {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  padding-top: 2px;
+}
+/* line 95, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .close a {
+  width: 25px;
+  height: 25px;
+  background-color: #443D3D;
+  font-size: 15px;
+  font-family: arial;
+  border: 2px solid #443D3D;
+  border-radius: 50%;
+  padding-bottom: 2px;
+  color: #A0CC52;
+}
+/* line 107, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/_backoffice-header.scss */
+.wrap .close:hover a {
+  color: white;
+}
+
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/delete_fire.scss */
+#id {
+  margin-left: 0;
+}
+
+/* line 2, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/add_user.scss */
+input#type {
+  width: 50px;
+}
+
+/* line 6, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/add_user.scss */
+.positive-user {
+  display: flex;
+  flex-flow: column;
+}
+@media screen and (min-width: 768px) {
+  /* line 6, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/add_user.scss */
+  .positive-user {
+    flex-flow: row;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* line 18, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/add_user.scss */
+  .negative-user {
+    display: flex;
+    justify-content: center;
+  }
+}
+/* line 24, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/add_user.scss */
+.negative-user .back-title {
+  color: #B90707;
+}
+@media screen and (min-width: 768px) {
+  /* line 31, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/add_user.scss */
+  .negative-user .delete-user.back.wrap form {
+    flex-flow: row;
+  }
+}
+/* line 36, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/add_user.scss */
+.negative-user .delete-user.back.wrap input:hover {
+  background-color: #B90707;
+  border-color: #B90707;
+}
+
+/* line 3, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/common.scss */
+.back {
+  align-items: flex-start;
+  color: #443D3D;
+}
+/* line 7, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/common.scss */
+.back form {
+  width: 100%;
+  padding: 3% 10%;
+}
+/* line 12, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/common.scss */
+.back label {
+  margin-right: 8px;
+  font-weight: 700;
+}
+/* line 17, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/common.scss */
+.back select, .back input {
+  margin-bottom: 20px;
+}
+/* line 21, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/common.scss */
+.back input[type=submit] {
+  margin-left: 20px;
+}
+
+/* line 26, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/common.scss */
+.back-title {
+  text-transform: lowercase;
+}
+
+/* line 30, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/common.scss */
+.back-fires {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+}
+/* line 35, /home/eos/Projects/Igneum/app/assets/stylesheets/backoffice/common.scss */
+.back-fires tbody tr:nth-child(2n+1) {
+  background-color: lightgrey;
+}
