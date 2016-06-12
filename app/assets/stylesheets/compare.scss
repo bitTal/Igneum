@@ -24,8 +24,6 @@
 
 
 .compare-fires {
-	background-color: #A0CC52;
-
 	.wrap {
 		display: flex;
 		flex-flow: column;
@@ -33,7 +31,12 @@
 		padding-top: 30px;
 		padding-bottom: 30px;
 		color: #443D3D;
-		text-align: center;		
+		text-align: center;	
+
+		hr {
+			width: 100%;
+			border-color: #A0CC52;
+		}	
 	}
 }
 
