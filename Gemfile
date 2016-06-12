@@ -47,6 +47,6 @@ group :development do
   gem 'spring'
 end
 
-gem 'rails_12factor', group: :production
+gem 'rolify', :git => 'git://github.com/EppO/rolify.git'
 
 
