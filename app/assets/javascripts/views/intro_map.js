@@ -7,13 +7,13 @@
  * @param  {Object} App Global object
  */
 
-class Intro_Map extends Map{
+class Intro_Map extends BaseMap {
 
   defaults() {
     const month = this.options.month || this.getYearMonth().month + 1;
     const year = this.options.year || this.getYearMonth().year;
 
-    return Object.assign( Map.prototype.defaults(), {
+    return Object.assign( BaseMap.prototype.defaults(), {
       markerCartocss: `#frs {
         marker-fill: #D41F09;
       }`,
@@ -26,7 +26,7 @@ class Intro_Map extends Map{
     const self = this;
 
     cartodb.createLayer(map, {
-      user_name: 'albafjez',
+      user_name: 'igneum-test',
       type: 'cartodb',
       sublayers: [{
         sql: this.options.markerSql || this.defaults().markerSql,
@@ -46,7 +46,7 @@ class Intro_Map extends Map{
 
   popUp(latlng, data, map){
     const latlng1 = L.latLng(latlng[0], latlng[1]);
-    const sql = new cartodb.SQL({ user: 'albafjez' });
+    const sql = new cartodb.SQL({ user: 'igneum-test' });
     const query = `SELECT nom_prov FROM spanish_adm2_provinces WHERE cod_prov='${data.cod_prov}'`;
 
     sql.execute(query, { id: 3 })
