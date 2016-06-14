@@ -54,7 +54,7 @@
       L.control.scale().addTo(map);
 
       cartodb.createLayer(map, {
-        user_name: 'albafjez',
+        user_name: 'igneum-test',
         type: 'cartodb',
         sublayers: [{
           sql: this.options.query || this.defaults().query,
