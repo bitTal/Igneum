@@ -101,10 +101,10 @@
         query: this._compare_query(dates.month2, dates.year2, dates.month1, dates.year1), 
       };
         
-      const compareMap1 = new Map(Object.assign({el: 'map1', defaultZoom : 3}, settings1, generalSettings));
-      const compareCanarias1 = new Map(Object.assign({el: 'mini-map1', defaultZoom : 7}, settings1, canariasBounds, generalSettings));
-      const compareMap2 = new Map(Object.assign({el: 'map2', defaultZoom : 3}, settings2, generalSettings));
-      const compareCanarias2 = new Map(Object.assign({el: 'mini-map2', defaultZoom : 7}, settings2, canariasBounds, generalSettings));
+      const compareMap1 = new BaseMap(Object.assign({el: 'map1', defaultZoom : 3}, settings1, generalSettings));
+      const compareCanarias1 = new BaseMap(Object.assign({el: 'mini-map1', defaultZoom : 7}, settings1, canariasBounds, generalSettings));
+      const compareMap2 = new BaseMap(Object.assign({el: 'map2', defaultZoom : 3}, settings2, generalSettings));
+      const compareCanarias2 = new BaseMap(Object.assign({el: 'mini-map2', defaultZoom : 7}, settings2, canariasBounds, generalSettings));
     },
 
      _compare_query(month1, year1, month2, year2) {
